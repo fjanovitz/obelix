@@ -10,13 +10,12 @@ def send_servo_request(angle_deg):
 
     try:
         set_servo = rospy.ServiceProxy('/controlador_servo/set_position', Servo)
-        
         # Cria a mensagem JointTrajectory
         traj = JointTrajectory()
         point = JointTrajectoryPoint()
         point.positions = [angle_deg * 3.1416 / 180]  # Converte para radianos
         traj.points.append(point)
-
+        rospy.loginfo(f"Enviando requisição para mover o servo para {angle_deg}°...")
         response = set_servo(traj)
         rospy.loginfo(f"Resposta: {response.message} (Sucesso: {response.success}, Ângulo: {response.angle:.2f}°)")
         
@@ -24,4 +23,4 @@ def send_servo_request(angle_deg):
         rospy.logerr(f"Erro no serviço: {e}")
 
 if __name__ == '__main__':
-    send_servo_request(45)  # Altere o ângulo conforme quiser
+    send_servo_request(90)  # Altere o ângulo conforme quiser

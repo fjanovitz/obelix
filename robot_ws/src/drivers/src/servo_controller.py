@@ -26,6 +26,8 @@ class ControladorServo:
             Servo,
             self.handle_request
         )
+
+        rospy.loginfo("Serviço de controle do servo iniciado. Aguardando requisições...")	
         
     def handle_request(self, req):
         try:
