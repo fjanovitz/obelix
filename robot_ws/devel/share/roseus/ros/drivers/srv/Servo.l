@@ -63,59 +63,27 @@
 
 (defclass drivers::ServoResponse
   :super ros::object
-  :slots (_success _message _angle ))
+  :slots ())
 
 (defmethod drivers::ServoResponse
   (:init
    (&key
-    ((:success __success) nil)
-    ((:message __message) "")
-    ((:angle __angle) 0.0)
     )
    (send-super :init)
-   (setq _success __success)
-   (setq _message (string __message))
-   (setq _angle (float __angle))
    self)
-  (:success
-   (&optional (__success :null))
-   (if (not (eq __success :null)) (setq _success __success)) _success)
-  (:message
-   (&optional __message)
-   (if __message (setq _message __message)) _message)
-  (:angle
-   (&optional __angle)
-   (if __angle (setq _angle __angle)) _angle)
   (:serialization-length
    ()
    (+
-    ;; bool _success
-    1
-    ;; string _message
-    4 (length _message)
-    ;; float64 _angle
-    8
+    0
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; bool _success
-       (if _success (write-byte -1 s) (write-byte 0 s))
-     ;; string _message
-       (write-long (length _message) s) (princ _message s)
-     ;; float64 _angle
-       (sys::poke _angle (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; bool _success
-     (setq _success (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
-   ;; string _message
-     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _message (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
-   ;; float64 _angle
-     (setq _angle (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;;
    self)
   )
@@ -124,7 +92,7 @@
   :super ros::object
   :slots ())
 
-(setf (get drivers::Servo :md5sum-) "539851e77c84d32d3e4ea058da5cb99b")
+(setf (get drivers::Servo :md5sum-) "2a0eff76c870e8595636c2a562ca298e")
 (setf (get drivers::Servo :datatype-) "drivers/Servo")
 (setf (get drivers::Servo :request) drivers::ServoRequest)
 (setf (get drivers::Servo :response) drivers::ServoResponse)
@@ -132,7 +100,7 @@
 (defmethod drivers::ServoRequest
   (:response () (instance drivers::ServoResponse :init)))
 
-(setf (get drivers::ServoRequest :md5sum-) "539851e77c84d32d3e4ea058da5cb99b")
+(setf (get drivers::ServoRequest :md5sum-) "2a0eff76c870e8595636c2a562ca298e")
 (setf (get drivers::ServoRequest :datatype-) "drivers/ServoRequest")
 (setf (get drivers::ServoRequest :definition-)
       "trajectory_msgs/JointTrajectory trajectory
@@ -171,13 +139,9 @@ float64[] accelerations
 float64[] effort
 duration time_from_start
 ---
-bool success
-string message
-float64 angle
-
 ")
 
-(setf (get drivers::ServoResponse :md5sum-) "539851e77c84d32d3e4ea058da5cb99b")
+(setf (get drivers::ServoResponse :md5sum-) "2a0eff76c870e8595636c2a562ca298e")
 (setf (get drivers::ServoResponse :datatype-) "drivers/ServoResponse")
 (setf (get drivers::ServoResponse :definition-)
       "trajectory_msgs/JointTrajectory trajectory
@@ -216,14 +180,10 @@ float64[] accelerations
 float64[] effort
 duration time_from_start
 ---
-bool success
-string message
-float64 angle
-
 ")
 
 
 
-(provide :drivers/Servo "539851e77c84d32d3e4ea058da5cb99b")
+(provide :drivers/Servo "2a0eff76c870e8595636c2a562ca298e")
 
 

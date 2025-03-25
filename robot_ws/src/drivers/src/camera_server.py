@@ -4,10 +4,10 @@ import rospy
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image
-from drivers.srv import Camera, CameraResponse
+from drivers.srv import Camera, CameraResponse  # Isso deve ser um serviço definido em outro arquivo
 import time
 
-class Camera:
+class CameraServer:  # Mude o nome da classe para evitar conflito
     def __init__(self):
         rospy.init_node("camera_server")
         
@@ -23,6 +23,7 @@ class Camera:
         
         rospy.loginfo("Câmera iniciada")
         
+        # Certifique-se que 'Camera' aqui refere-se ao tipo de serviço definido em outro lugar
         self.service = rospy.Service("image", Camera, self.handle_capture_request)
         rospy.loginfo("O serviço de câmera está pronto")
     
@@ -49,8 +50,8 @@ class Camera:
 
 if __name__ == "__main__":
     try:
-        camera_service = Camera()
-        rospy.on_shutdown(camera_service.shutdown)
+        server = CameraServer()  # Use o novo nome da classe
+        rospy.on_shutdown(server.shutdown)
         rospy.spin()
     except rospy.ROSInterruptException:
         pass

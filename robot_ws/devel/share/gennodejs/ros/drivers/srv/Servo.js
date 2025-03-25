@@ -129,40 +129,13 @@ class ServoResponse {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.success = null;
-      this.message = null;
-      this.angle = null;
     }
     else {
-      if (initObj.hasOwnProperty('success')) {
-        this.success = initObj.success
-      }
-      else {
-        this.success = false;
-      }
-      if (initObj.hasOwnProperty('message')) {
-        this.message = initObj.message
-      }
-      else {
-        this.message = '';
-      }
-      if (initObj.hasOwnProperty('angle')) {
-        this.angle = initObj.angle
-      }
-      else {
-        this.angle = 0.0;
-      }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type ServoResponse
-    // Serialize message field [success]
-    bufferOffset = _serializer.bool(obj.success, buffer, bufferOffset);
-    // Serialize message field [message]
-    bufferOffset = _serializer.string(obj.message, buffer, bufferOffset);
-    // Serialize message field [angle]
-    bufferOffset = _serializer.float64(obj.angle, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -170,19 +143,11 @@ class ServoResponse {
     //deserializes a message object of type ServoResponse
     let len;
     let data = new ServoResponse(null);
-    // Deserialize message field [success]
-    data.success = _deserializer.bool(buffer, bufferOffset);
-    // Deserialize message field [message]
-    data.message = _deserializer.string(buffer, bufferOffset);
-    // Deserialize message field [angle]
-    data.angle = _deserializer.float64(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    let length = 0;
-    length += _getByteLength(object.message);
-    return length + 13;
+    return 0;
   }
 
   static datatype() {
@@ -192,16 +157,12 @@ class ServoResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '6a3e8e40d2eae8500b7d86775214d623';
+    return 'd41d8cd98f00b204e9800998ecf8427e';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    bool success
-    string message
-    float64 angle
-    
     
     `;
   }
@@ -212,27 +173,6 @@ class ServoResponse {
       msg = {};
     }
     const resolved = new ServoResponse(null);
-    if (msg.success !== undefined) {
-      resolved.success = msg.success;
-    }
-    else {
-      resolved.success = false
-    }
-
-    if (msg.message !== undefined) {
-      resolved.message = msg.message;
-    }
-    else {
-      resolved.message = ''
-    }
-
-    if (msg.angle !== undefined) {
-      resolved.angle = msg.angle;
-    }
-    else {
-      resolved.angle = 0.0
-    }
-
     return resolved;
     }
 };
@@ -240,6 +180,6 @@ class ServoResponse {
 module.exports = {
   Request: ServoRequest,
   Response: ServoResponse,
-  md5sum() { return '539851e77c84d32d3e4ea058da5cb99b'; },
+  md5sum() { return '2a0eff76c870e8595636c2a562ca298e'; },
   datatype() { return 'drivers/Servo'; }
 };

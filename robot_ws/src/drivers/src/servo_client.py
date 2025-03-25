@@ -6,7 +6,7 @@ from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from drivers.srv import Servo
 
 if __name__ == '__main__':
-    angle_deg = -90
+    angle_deg = 0
     count = 0
     print(f"Enviando requisição para mover o servo para {angle_deg}°...")# Altere o ângulo conforme quiser
     rospy.init_node('test_servo_client')

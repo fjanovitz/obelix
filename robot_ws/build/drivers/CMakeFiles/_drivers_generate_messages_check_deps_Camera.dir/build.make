@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build
 include drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/progress.make
 
 drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py drivers /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv std_msgs/Header:sensor_msgs/Image
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py drivers /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv sensor_msgs/Image:std_msgs/Header
 
 _drivers_generate_messages_check_deps_Camera: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera
 _drivers_generate_messages_check_deps_Camera: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/build.make

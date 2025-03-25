@@ -100,10 +100,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/drivers" TYPE PROGRAM FILES "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers/catkin_generated/installspace/lidar_setup.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/drivers" TYPE PROGRAM FILES "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers/catkin_generated/installspace/lidar_publisher.py")
 endif()
 

@@ -172,10 +172,6 @@ catkin_install_python(PROGRAMS src/camera_client.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-catkin_install_python(PROGRAMS src/lidar_setup.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
 catkin_install_python(PROGRAMS src/lidar_publisher.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
