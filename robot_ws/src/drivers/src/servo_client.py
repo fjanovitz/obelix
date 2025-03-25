@@ -2,14 +2,14 @@
 
 import rospy
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-from drivers.srv import SetServo
+from drivers.srv import Servo
 
 def send_servo_request(angle_deg):
     rospy.init_node('test_servo_client')
     rospy.wait_for_service('/controlador_servo/set_position')
 
     try:
-        set_servo = rospy.ServiceProxy('/controlador_servo/set_position', SetServo)
+        set_servo = rospy.ServiceProxy('/controlador_servo/set_position', Servo)
         
         # Cria a mensagem JointTrajectory
         traj = JointTrajectory()
