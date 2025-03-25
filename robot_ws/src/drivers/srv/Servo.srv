@@ -1,5 +1,2 @@
 trajectory_msgs/JointTrajectory trajectory
 ---
-bool success
-string message
-float64 angle

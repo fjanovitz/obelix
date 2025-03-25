@@ -14,10 +14,10 @@ GPIO.setmode(GPIO.BCM)  # Usamos a numeração BCM
 # -------------------------
 # PINOS MOTORES (já existentes)
 # -------------------------
-MOTOR1_IN1 = 24
-MOTOR1_IN2 = 25
-MOTOR2_IN3 = 26
-MOTOR2_IN4 = 16
+MOTOR1_IN1 = 25
+MOTOR1_IN2 = 24
+MOTOR2_IN3 = 16
+MOTOR2_IN4 = 26
 ENABLE_A   = 20
 ENABLE_B   = 13
 
