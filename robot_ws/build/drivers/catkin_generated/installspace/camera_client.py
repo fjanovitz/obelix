@@ -22,8 +22,6 @@ def capture_image_client():
         try:
             cv_image = bridge.imgmsg_to_cv2(response.image, "bgr8")
             
-            cv2.imshow("Imagem Capturada", cv_image)
-            
             image_path = "image.jpg"
             cv2.imwrite(image_path, cv_image)
             rospy.loginfo(f"Imagem salva como {image_path}")

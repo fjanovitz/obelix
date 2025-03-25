@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/robot/Documents/2024-2-Projeto2/robot_ws/devel/share/gennodejs/ros/drivers/srv/CaptureImage.js"
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/share/gennodejs/ros/drivers/srv/CaptureImage.js"
   "CMakeFiles/drivers_generate_messages_nodejs"
 )
 

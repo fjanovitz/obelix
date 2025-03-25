@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robot/Documents/2024-2-Projeto2/robot_ws/src
+CMAKE_SOURCE_DIR = /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robot/Documents/2024-2-Projeto2/robot_ws/build
+CMAKE_BINARY_DIR = /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build
 
 # Utility rule file for drivers_genpy.
 
@@ -63,10 +63,10 @@ drivers/CMakeFiles/drivers_genpy.dir/build: drivers_genpy
 .PHONY : drivers/CMakeFiles/drivers_genpy.dir/build
 
 drivers/CMakeFiles/drivers_genpy.dir/clean:
-	cd /home/robot/Documents/2024-2-Projeto2/robot_ws/build/drivers && $(CMAKE_COMMAND) -P CMakeFiles/drivers_genpy.dir/cmake_clean.cmake
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers && $(CMAKE_COMMAND) -P CMakeFiles/drivers_genpy.dir/cmake_clean.cmake
 .PHONY : drivers/CMakeFiles/drivers_genpy.dir/clean
 
 drivers/CMakeFiles/drivers_genpy.dir/depend:
-	cd /home/robot/Documents/2024-2-Projeto2/robot_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robot/Documents/2024-2-Projeto2/robot_ws/src /home/robot/Documents/2024-2-Projeto2/robot_ws/src/drivers /home/robot/Documents/2024-2-Projeto2/robot_ws/build /home/robot/Documents/2024-2-Projeto2/robot_ws/build/drivers /home/robot/Documents/2024-2-Projeto2/robot_ws/build/drivers/CMakeFiles/drivers_genpy.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers/CMakeFiles/drivers_genpy.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : drivers/CMakeFiles/drivers_genpy.dir/depend
 

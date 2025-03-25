@@ -1,8 +1,8 @@
-# Install script for directory: /home/robot/Documents/2024-2-Projeto2/robot_ws/src/maze
+# Install script for directory: /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/maze
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/robot/Documents/2024-2-Projeto2/robot_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/robot/Documents/2024-2-Projeto2/robot_ws/build/maze/catkin_generated/installspace/maze.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/maze/catkin_generated/installspace/maze.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/maze/cmake" TYPE FILE FILES
-    "/home/robot/Documents/2024-2-Projeto2/robot_ws/build/maze/catkin_generated/installspace/mazeConfig.cmake"
-    "/home/robot/Documents/2024-2-Projeto2/robot_ws/build/maze/catkin_generated/installspace/mazeConfig-version.cmake"
+    "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/maze/catkin_generated/installspace/mazeConfig.cmake"
+    "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/maze/catkin_generated/installspace/mazeConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/maze" TYPE FILE FILES "/home/robot/Documents/2024-2-Projeto2/robot_ws/src/maze/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/maze" TYPE FILE FILES "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/maze/package.xml")
 endif()
 

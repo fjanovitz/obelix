@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/robot/Documents/2024-2-Projeto2/robot_ws/devel/include/drivers/CaptureImage.h"
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/CaptureImage.h"
   "CMakeFiles/drivers_generate_messages_cpp"
 )
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/robot/Documents/2024-2-Projeto2/robot_ws/devel/lib/python3/dist-packages/drivers/srv/_CaptureImage.py"
-  "/home/robot/Documents/2024-2-Projeto2/robot_ws/devel/lib/python3/dist-packages/drivers/srv/__init__.py"
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/lib/python3/dist-packages/drivers/srv/_CaptureImage.py"
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/lib/python3/dist-packages/drivers/srv/__init__.py"
   "CMakeFiles/drivers_generate_messages_py"
 )
 

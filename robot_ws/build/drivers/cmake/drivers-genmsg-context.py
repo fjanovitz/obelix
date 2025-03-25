@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/home/robot/Documents/2024-2-Projeto2/robot_ws/src/drivers/srv/CaptureImage.srv"
+services_str = "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv"
 pkg_name = "drivers"
 dependencies_str = "sensor_msgs;std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

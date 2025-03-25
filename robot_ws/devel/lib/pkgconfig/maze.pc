@@ -1,4 +1,4 @@
-prefix=/home/robot/Documents/2024-2-Projeto2/robot_ws/devel
+prefix=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel
 
 Name: maze
 Description: Description of maze
