@@ -1,8 +1,10 @@
 
 "use strict";
 
-let CaptureImage = require('./CaptureImage.js')
+let Camera = require('./Camera.js')
+let Servo = require('./Servo.js')
 
 module.exports = {
-  CaptureImage: CaptureImage,
+  Camera: Camera,
+  Servo: Servo,
 };

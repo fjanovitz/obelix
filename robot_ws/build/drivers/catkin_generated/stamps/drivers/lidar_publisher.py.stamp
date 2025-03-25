@@ -1,8 +1,10 @@
+#!/usr/bin/env python3
+
 import rospy
 import math
 from sensor_msgs.msg import PointCloud2, PointField
 import sensor_msgs.point_cloud2 as pc2
-from lidar_reader import setup_lidar, get_lidar_data
+from lidar_setup import setup_lidar, get_lidar_data
 
 def publish_lidar():
     rospy.init_node("ydlidar_publisher", anonymous=True)

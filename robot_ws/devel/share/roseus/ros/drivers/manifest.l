@@ -10,4 +10,5 @@
 (ros::load-ros-package "rosgraph_msgs")
 (ros::load-ros-package "sensor_msgs")
 (ros::load-ros-package "std_msgs")
+(ros::load-ros-package "trajectory_msgs")
 (ros::load-ros-package "drivers")

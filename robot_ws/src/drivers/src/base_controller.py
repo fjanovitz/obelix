@@ -59,7 +59,7 @@ right_count = 0
 UPDATE_RATE = 20.0  # por exemplo, 20 Hz
 
 # Constantes do robô
-R         = 0.03  # Raio da roda (ex: 3 cm)
+R         = 0.0375  # Raio da roda (ex: 3 cm)
 PPR       = 11    # Pulsos por volta do encoder (exemplo)
 gear_ratio= 1.0   # Se houver caixa de redução adicional, colocar aqui (46, 50 etc.)
 # Se não souber, deixe 1.0 e comente ao lado: "exemplo"

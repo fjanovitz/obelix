@@ -4,7 +4,7 @@ import rospy
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image
-from drivers.srv import CaptureImage, CaptureImageResponse
+from drivers.srv import Camera, CameraResponse
 import time
 
 class Camera:
@@ -23,7 +23,7 @@ class Camera:
         
         rospy.loginfo("Câmera iniciada")
         
-        self.service = rospy.Service("image", CaptureImage, self.handle_capture_request)
+        self.service = rospy.Service("image", Camera, self.handle_capture_request)
         rospy.loginfo("O serviço de câmera está pronto")
     
     def handle_capture_request(self, req):
@@ -33,14 +33,14 @@ class Camera:
         
         if not ret:
             rospy.logerr("Erro: Não foi possível capturar o frame.")
-            return CaptureImageResponse()
+            return CameraResponse()
         
         try:
             ros_image = self.bridge.cv2_to_imgmsg(frame, "bgr8")
-            return CaptureImageResponse(image=ros_image)
+            return CameraResponse(image=ros_image)
         except CvBridgeError as e:
             rospy.logerr(f"Erro no CV Bridge: {e}")
-            return CaptureImageResponse()
+            return CameraResponse()
     
     def shutdown(self):
         if self.camera.isOpened():

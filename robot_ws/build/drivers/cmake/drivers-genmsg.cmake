@@ -1,8 +1,8 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "drivers: 0 messages, 1 services")
+message(STATUS "drivers: 0 messages, 2 services")
 
-set(MSG_I_FLAGS "-Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Itrajectory_msgs:/opt/ros/noetic/share/trajectory_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,9 +17,14 @@ add_custom_target(drivers_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv" NAME_WE)
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv" NAME_WE)
 add_custom_target(_drivers_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drivers" "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv" "std_msgs/Header:sensor_msgs/Image"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drivers" "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv" "std_msgs/Header:sensor_msgs/Image"
+)
+
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv" NAME_WE)
+add_custom_target(_drivers_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drivers" "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv" "std_msgs/Header:trajectory_msgs/JointTrajectory:trajectory_msgs/JointTrajectoryPoint"
 )
 
 #
@@ -31,9 +36,15 @@ add_custom_target(_drivers_generate_messages_check_deps_${_filename}
 
 ### Generating Services
 _generate_srv_cpp(drivers
-  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv"
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/drivers
+)
+_generate_srv_cpp(drivers
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/drivers
 )
 
@@ -49,7 +60,9 @@ add_custom_target(drivers_generate_messages_cpp
 add_dependencies(drivers_generate_messages drivers_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv" NAME_WE)
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv" NAME_WE)
+add_dependencies(drivers_generate_messages_cpp _drivers_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv" NAME_WE)
 add_dependencies(drivers_generate_messages_cpp _drivers_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -64,9 +77,15 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drivers_generate_messages_cpp)
 
 ### Generating Services
 _generate_srv_eus(drivers
-  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv"
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/drivers
+)
+_generate_srv_eus(drivers
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/drivers
 )
 
@@ -82,7 +101,9 @@ add_custom_target(drivers_generate_messages_eus
 add_dependencies(drivers_generate_messages drivers_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv" NAME_WE)
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv" NAME_WE)
+add_dependencies(drivers_generate_messages_eus _drivers_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv" NAME_WE)
 add_dependencies(drivers_generate_messages_eus _drivers_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -97,9 +118,15 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drivers_generate_messages_eus)
 
 ### Generating Services
 _generate_srv_lisp(drivers
-  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv"
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/drivers
+)
+_generate_srv_lisp(drivers
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/drivers
 )
 
@@ -115,7 +142,9 @@ add_custom_target(drivers_generate_messages_lisp
 add_dependencies(drivers_generate_messages drivers_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv" NAME_WE)
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv" NAME_WE)
+add_dependencies(drivers_generate_messages_lisp _drivers_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv" NAME_WE)
 add_dependencies(drivers_generate_messages_lisp _drivers_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -130,9 +159,15 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drivers_generate_messages_lisp)
 
 ### Generating Services
 _generate_srv_nodejs(drivers
-  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv"
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/drivers
+)
+_generate_srv_nodejs(drivers
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/drivers
 )
 
@@ -148,7 +183,9 @@ add_custom_target(drivers_generate_messages_nodejs
 add_dependencies(drivers_generate_messages drivers_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv" NAME_WE)
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv" NAME_WE)
+add_dependencies(drivers_generate_messages_nodejs _drivers_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv" NAME_WE)
 add_dependencies(drivers_generate_messages_nodejs _drivers_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -163,9 +200,15 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drivers_generate_messages_nodejs)
 
 ### Generating Services
 _generate_srv_py(drivers
-  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv"
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/drivers
+)
+_generate_srv_py(drivers
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/drivers
 )
 
@@ -181,7 +224,9 @@ add_custom_target(drivers_generate_messages_py
 add_dependencies(drivers_generate_messages drivers_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv" NAME_WE)
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv" NAME_WE)
+add_dependencies(drivers_generate_messages_py _drivers_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv" NAME_WE)
 add_dependencies(drivers_generate_messages_py _drivers_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -206,6 +251,9 @@ endif()
 if(TARGET std_msgs_generate_messages_cpp)
   add_dependencies(drivers_generate_messages_cpp std_msgs_generate_messages_cpp)
 endif()
+if(TARGET trajectory_msgs_generate_messages_cpp)
+  add_dependencies(drivers_generate_messages_cpp trajectory_msgs_generate_messages_cpp)
+endif()
 
 if(geneus_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/drivers)
   # install generated code
@@ -219,6 +267,9 @@ if(TARGET sensor_msgs_generate_messages_eus)
 endif()
 if(TARGET std_msgs_generate_messages_eus)
   add_dependencies(drivers_generate_messages_eus std_msgs_generate_messages_eus)
+endif()
+if(TARGET trajectory_msgs_generate_messages_eus)
+  add_dependencies(drivers_generate_messages_eus trajectory_msgs_generate_messages_eus)
 endif()
 
 if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/drivers)
@@ -234,6 +285,9 @@ endif()
 if(TARGET std_msgs_generate_messages_lisp)
   add_dependencies(drivers_generate_messages_lisp std_msgs_generate_messages_lisp)
 endif()
+if(TARGET trajectory_msgs_generate_messages_lisp)
+  add_dependencies(drivers_generate_messages_lisp trajectory_msgs_generate_messages_lisp)
+endif()
 
 if(gennodejs_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/drivers)
   # install generated code
@@ -247,6 +301,9 @@ if(TARGET sensor_msgs_generate_messages_nodejs)
 endif()
 if(TARGET std_msgs_generate_messages_nodejs)
   add_dependencies(drivers_generate_messages_nodejs std_msgs_generate_messages_nodejs)
+endif()
+if(TARGET trajectory_msgs_generate_messages_nodejs)
+  add_dependencies(drivers_generate_messages_nodejs trajectory_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/drivers)
@@ -262,4 +319,7 @@ if(TARGET sensor_msgs_generate_messages_py)
 endif()
 if(TARGET std_msgs_generate_messages_py)
   add_dependencies(drivers_generate_messages_py std_msgs_generate_messages_py)
+endif()
+if(TARGET trajectory_msgs_generate_messages_py)
+  add_dependencies(drivers_generate_messages_py trajectory_msgs_generate_messages_py)
 endif()

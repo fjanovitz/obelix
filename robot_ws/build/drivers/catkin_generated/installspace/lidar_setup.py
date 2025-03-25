@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import ydlidar
 import math
 import matplotlib.pyplot as plt
@@ -94,4 +96,5 @@ if __name__ == "__main__":
         laser.turnOff()
         laser.disconnecting()
 
+#ssh robot@192.168.1.100
 #Mec@tr0n

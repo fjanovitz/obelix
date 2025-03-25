@@ -92,9 +92,16 @@ drivers/preinstall:
 .PHONY : drivers/preinstall
 
 # Recursive "clean" directory target.
+drivers/clean: drivers/CMakeFiles/drivers_generate_messages_py.dir/clean
+drivers/clean: drivers/CMakeFiles/drivers_gennodejs.dir/clean
 drivers/clean: drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+drivers/clean: drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/clean
 drivers/clean: drivers/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
 drivers/clean: drivers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+drivers/clean: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/clean
+drivers/clean: drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/clean
+drivers/clean: drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+drivers/clean: drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 drivers/clean: drivers/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
 drivers/clean: drivers/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
 drivers/clean: drivers/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
@@ -102,23 +109,22 @@ drivers/clean: drivers/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
 drivers/clean: drivers/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
 drivers/clean: drivers/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 drivers/clean: drivers/CMakeFiles/drivers_gencpp.dir/clean
-drivers/clean: drivers/CMakeFiles/drivers_gennodejs.dir/clean
 drivers/clean: drivers/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-drivers/clean: drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/clean
 drivers/clean: drivers/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
 drivers/clean: drivers/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 drivers/clean: drivers/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
 drivers/clean: drivers/CMakeFiles/drivers_generate_messages.dir/clean
+drivers/clean: drivers/CMakeFiles/drivers_genpy.dir/clean
+drivers/clean: drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
+drivers/clean: drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
+drivers/clean: drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/clean
+drivers/clean: drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/clean
+drivers/clean: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/clean
+drivers/clean: drivers/CMakeFiles/drivers_generate_messages_eus.dir/clean
 drivers/clean: drivers/CMakeFiles/drivers_generate_messages_cpp.dir/clean
 drivers/clean: drivers/CMakeFiles/drivers_generate_messages_lisp.dir/clean
-drivers/clean: drivers/CMakeFiles/drivers_generate_messages_eus.dir/clean
 drivers/clean: drivers/CMakeFiles/drivers_geneus.dir/clean
 drivers/clean: drivers/CMakeFiles/drivers_genlisp.dir/clean
-drivers/clean: drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-drivers/clean: drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-drivers/clean: drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/clean
-drivers/clean: drivers/CMakeFiles/drivers_generate_messages_py.dir/clean
-drivers/clean: drivers/CMakeFiles/drivers_genpy.dir/clean
 
 .PHONY : drivers/clean
 
@@ -340,7 +346,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmoc
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=10,11 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=15,16 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -367,7 +373,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/clean:
 gtest/googlemock/CMakeFiles/gmock.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=8,9 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=13,14 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -394,7 +400,7 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 gtest/googletest/CMakeFiles/gtest_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=14,15 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=19,20 "Built target gtest_main"
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -421,7 +427,7 @@ gtest/googletest/CMakeFiles/gtest_main.dir/clean:
 gtest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=12,13 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=17,18 "Built target gtest"
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -469,6 +475,64 @@ maze/CMakeFiles/_catkin_empty_exported_target.dir/clean:
 .PHONY : maze/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 #=============================================================================
+# Target rules for target drivers/CMakeFiles/drivers_generate_messages_py.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/drivers_generate_messages_py.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/all
+drivers/CMakeFiles/drivers_generate_messages_py.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+drivers/CMakeFiles/drivers_generate_messages_py.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_py.dir/all
+drivers/CMakeFiles/drivers_generate_messages_py.dir/all: drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/all
+drivers/CMakeFiles/drivers_generate_messages_py.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/all
+	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_py.dir/build.make drivers/CMakeFiles/drivers_generate_messages_py.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_py.dir/build.make drivers/CMakeFiles/drivers_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=10,11,12 "Built target drivers_generate_messages_py"
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/drivers_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_py.dir/rule
+
+# Convenience name for target.
+drivers_generate_messages_py: drivers/CMakeFiles/drivers_generate_messages_py.dir/rule
+
+.PHONY : drivers_generate_messages_py
+
+# clean rule for target.
+drivers/CMakeFiles/drivers_generate_messages_py.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_py.dir/build.make drivers/CMakeFiles/drivers_generate_messages_py.dir/clean
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/drivers_gennodejs.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/drivers_gennodejs.dir/all: drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all
+	$(MAKE) -f drivers/CMakeFiles/drivers_gennodejs.dir/build.make drivers/CMakeFiles/drivers_gennodejs.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/drivers_gennodejs.dir/build.make drivers/CMakeFiles/drivers_gennodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target drivers_gennodejs"
+.PHONY : drivers/CMakeFiles/drivers_gennodejs.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/drivers_gennodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_gennodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/drivers_gennodejs.dir/rule
+
+# Convenience name for target.
+drivers_gennodejs: drivers/CMakeFiles/drivers_gennodejs.dir/rule
+
+.PHONY : drivers_gennodejs
+
+# clean rule for target.
+drivers/CMakeFiles/drivers_gennodejs.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/drivers_gennodejs.dir/build.make drivers/CMakeFiles/drivers_gennodejs.dir/clean
+.PHONY : drivers/CMakeFiles/drivers_gennodejs.dir/clean
+
+#=============================================================================
 # Target rules for target drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
@@ -494,6 +558,33 @@ std_msgs_generate_messages_cpp: drivers/CMakeFiles/std_msgs_generate_messages_cp
 drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
 	$(MAKE) -f drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 .PHONY : drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target trajectory_msgs_generate_messages_cpp"
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_cpp: drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_cpp
+
+# clean rule for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/clean
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
 # Target rules for target drivers/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
@@ -548,6 +639,118 @@ geometry_msgs_generate_messages_cpp: drivers/CMakeFiles/geometry_msgs_generate_m
 drivers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
 	$(MAKE) -f drivers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make drivers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 .PHONY : drivers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/all:
+	$(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target _drivers_generate_messages_check_deps_Camera"
+.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/rule
+
+# Convenience name for target.
+_drivers_generate_messages_check_deps_Camera: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/rule
+
+.PHONY : _drivers_generate_messages_check_deps_Camera
+
+# clean rule for target.
+drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/clean
+.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/drivers_generate_messages_nodejs.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/all
+drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all: drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all
+drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/all
+	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=8,9 "Built target drivers_generate_messages_nodejs"
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+drivers_generate_messages_nodejs: drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule
+
+.PHONY : drivers_generate_messages_nodejs
+
+# clean rule for target.
+drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/clean
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_py"
+.PHONY : drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_py: drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_py
+
+# clean rule for target.
+drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+.PHONY : drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
+.PHONY : drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_py: drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_py
+
+# clean rule for target.
+drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+.PHONY : drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
 # Target rules for target drivers/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir
@@ -723,7 +926,7 @@ drivers/CMakeFiles/drivers_gencpp.dir/all: drivers/CMakeFiles/drivers_generate_m
 
 # Build rule for subdir invocation for target.
 drivers/CMakeFiles/drivers_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
 .PHONY : drivers/CMakeFiles/drivers_gencpp.dir/rule
@@ -737,33 +940,6 @@ drivers_gencpp: drivers/CMakeFiles/drivers_gencpp.dir/rule
 drivers/CMakeFiles/drivers_gencpp.dir/clean:
 	$(MAKE) -f drivers/CMakeFiles/drivers_gencpp.dir/build.make drivers/CMakeFiles/drivers_gencpp.dir/clean
 .PHONY : drivers/CMakeFiles/drivers_gencpp.dir/clean
-
-#=============================================================================
-# Target rules for target drivers/CMakeFiles/drivers_gennodejs.dir
-
-# All Build rule for target.
-drivers/CMakeFiles/drivers_gennodejs.dir/all: drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all
-	$(MAKE) -f drivers/CMakeFiles/drivers_gennodejs.dir/build.make drivers/CMakeFiles/drivers_gennodejs.dir/depend
-	$(MAKE) -f drivers/CMakeFiles/drivers_gennodejs.dir/build.make drivers/CMakeFiles/drivers_gennodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target drivers_gennodejs"
-.PHONY : drivers/CMakeFiles/drivers_gennodejs.dir/all
-
-# Build rule for subdir invocation for target.
-drivers/CMakeFiles/drivers_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_gennodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-.PHONY : drivers/CMakeFiles/drivers_gennodejs.dir/rule
-
-# Convenience name for target.
-drivers_gennodejs: drivers/CMakeFiles/drivers_gennodejs.dir/rule
-
-.PHONY : drivers_gennodejs
-
-# clean rule for target.
-drivers/CMakeFiles/drivers_gennodejs.dir/clean:
-	$(MAKE) -f drivers/CMakeFiles/drivers_gennodejs.dir/build.make drivers/CMakeFiles/drivers_gennodejs.dir/clean
-.PHONY : drivers/CMakeFiles/drivers_gennodejs.dir/clean
 
 #=============================================================================
 # Target rules for target drivers/CMakeFiles/std_msgs_generate_messages_py.dir
@@ -791,33 +967,6 @@ std_msgs_generate_messages_py: drivers/CMakeFiles/std_msgs_generate_messages_py.
 drivers/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
 	$(MAKE) -f drivers/CMakeFiles/std_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 .PHONY : drivers/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir
-
-# All Build rule for target.
-drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/all:
-	$(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/depend
-	$(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target _drivers_generate_messages_check_deps_CaptureImage"
-.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/all
-
-# Build rule for subdir invocation for target.
-drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/rule
-
-# Convenience name for target.
-_drivers_generate_messages_check_deps_CaptureImage: drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/rule
-
-.PHONY : _drivers_generate_messages_check_deps_CaptureImage
-
-# clean rule for target.
-drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/clean:
-	$(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/clean
-.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/clean
 
 #=============================================================================
 # Target rules for target drivers/CMakeFiles/geometry_msgs_generate_messages_eus.dir
@@ -904,11 +1053,11 @@ drivers/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
 # Target rules for target drivers/CMakeFiles/drivers_generate_messages.dir
 
 # All Build rule for target.
+drivers/CMakeFiles/drivers_generate_messages.dir/all: drivers/CMakeFiles/drivers_generate_messages_py.dir/all
+drivers/CMakeFiles/drivers_generate_messages.dir/all: drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all
+drivers/CMakeFiles/drivers_generate_messages.dir/all: drivers/CMakeFiles/drivers_generate_messages_eus.dir/all
 drivers/CMakeFiles/drivers_generate_messages.dir/all: drivers/CMakeFiles/drivers_generate_messages_cpp.dir/all
 drivers/CMakeFiles/drivers_generate_messages.dir/all: drivers/CMakeFiles/drivers_generate_messages_lisp.dir/all
-drivers/CMakeFiles/drivers_generate_messages.dir/all: drivers/CMakeFiles/drivers_generate_messages_eus.dir/all
-drivers/CMakeFiles/drivers_generate_messages.dir/all: drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all
-drivers/CMakeFiles/drivers_generate_messages.dir/all: drivers/CMakeFiles/drivers_generate_messages_py.dir/all
 	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages.dir/build.make drivers/CMakeFiles/drivers_generate_messages.dir/depend
 	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages.dir/build.make drivers/CMakeFiles/drivers_generate_messages.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target drivers_generate_messages"
@@ -916,7 +1065,7 @@ drivers/CMakeFiles/drivers_generate_messages.dir/all: drivers/CMakeFiles/drivers
 
 # Build rule for subdir invocation for target.
 drivers/CMakeFiles/drivers_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
 .PHONY : drivers/CMakeFiles/drivers_generate_messages.dir/rule
@@ -932,20 +1081,215 @@ drivers/CMakeFiles/drivers_generate_messages.dir/clean:
 .PHONY : drivers/CMakeFiles/drivers_generate_messages.dir/clean
 
 #=============================================================================
+# Target rules for target drivers/CMakeFiles/drivers_genpy.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/drivers_genpy.dir/all: drivers/CMakeFiles/drivers_generate_messages_py.dir/all
+	$(MAKE) -f drivers/CMakeFiles/drivers_genpy.dir/build.make drivers/CMakeFiles/drivers_genpy.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/drivers_genpy.dir/build.make drivers/CMakeFiles/drivers_genpy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target drivers_genpy"
+.PHONY : drivers/CMakeFiles/drivers_genpy.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/drivers_genpy.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_genpy.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/drivers_genpy.dir/rule
+
+# Convenience name for target.
+drivers_genpy: drivers/CMakeFiles/drivers_genpy.dir/rule
+
+.PHONY : drivers_genpy
+
+# clean rule for target.
+drivers/CMakeFiles/drivers_genpy.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/drivers_genpy.dir/build.make drivers/CMakeFiles/drivers_genpy.dir/clean
+.PHONY : drivers/CMakeFiles/drivers_genpy.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target trajectory_msgs_generate_messages_nodejs"
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_nodejs: drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# clean rule for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target trajectory_msgs_generate_messages_eus"
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_eus: drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_eus
+
+# clean rule for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target trajectory_msgs_generate_messages_lisp"
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_lisp: drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_lisp
+
+# clean rule for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/clean
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target trajectory_msgs_generate_messages_py"
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_py: drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_py
+
+# clean rule for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/clean
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/all:
+	$(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target _drivers_generate_messages_check_deps_Servo"
+.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/rule
+
+# Convenience name for target.
+_drivers_generate_messages_check_deps_Servo: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/rule
+
+.PHONY : _drivers_generate_messages_check_deps_Servo
+
+# clean rule for target.
+drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/clean
+.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/clean
+
+#=============================================================================
+# Target rules for target drivers/CMakeFiles/drivers_generate_messages_eus.dir
+
+# All Build rule for target.
+drivers/CMakeFiles/drivers_generate_messages_eus.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/all
+drivers/CMakeFiles/drivers_generate_messages_eus.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+drivers/CMakeFiles/drivers_generate_messages_eus.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+drivers/CMakeFiles/drivers_generate_messages_eus.dir/all: drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/all
+drivers/CMakeFiles/drivers_generate_messages_eus.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/all
+	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_eus.dir/build.make drivers/CMakeFiles/drivers_generate_messages_eus.dir/depend
+	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_eus.dir/build.make drivers/CMakeFiles/drivers_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=3,4,5 "Built target drivers_generate_messages_eus"
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+drivers_generate_messages_eus: drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule
+
+.PHONY : drivers_generate_messages_eus
+
+# clean rule for target.
+drivers/CMakeFiles/drivers_generate_messages_eus.dir/clean:
+	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_eus.dir/build.make drivers/CMakeFiles/drivers_generate_messages_eus.dir/clean
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_eus.dir/clean
+
+#=============================================================================
 # Target rules for target drivers/CMakeFiles/drivers_generate_messages_cpp.dir
 
 # All Build rule for target.
 drivers/CMakeFiles/drivers_generate_messages_cpp.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-drivers/CMakeFiles/drivers_generate_messages_cpp.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/all
+drivers/CMakeFiles/drivers_generate_messages_cpp.dir/all: drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/all
+drivers/CMakeFiles/drivers_generate_messages_cpp.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/all
 drivers/CMakeFiles/drivers_generate_messages_cpp.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+drivers/CMakeFiles/drivers_generate_messages_cpp.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/all
 	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_cpp.dir/build.make drivers/CMakeFiles/drivers_generate_messages_cpp.dir/depend
 	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_cpp.dir/build.make drivers/CMakeFiles/drivers_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=1 "Built target drivers_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=1,2 "Built target drivers_generate_messages_cpp"
 .PHONY : drivers/CMakeFiles/drivers_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 drivers/CMakeFiles/drivers_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
 .PHONY : drivers/CMakeFiles/drivers_generate_messages_cpp.dir/rule
@@ -964,17 +1308,19 @@ drivers/CMakeFiles/drivers_generate_messages_cpp.dir/clean:
 # Target rules for target drivers/CMakeFiles/drivers_generate_messages_lisp.dir
 
 # All Build rule for target.
+drivers/CMakeFiles/drivers_generate_messages_lisp.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/all
 drivers/CMakeFiles/drivers_generate_messages_lisp.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 drivers/CMakeFiles/drivers_generate_messages_lisp.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-drivers/CMakeFiles/drivers_generate_messages_lisp.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/all
+drivers/CMakeFiles/drivers_generate_messages_lisp.dir/all: drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/all
+drivers/CMakeFiles/drivers_generate_messages_lisp.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/all
 	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_lisp.dir/build.make drivers/CMakeFiles/drivers_generate_messages_lisp.dir/depend
 	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_lisp.dir/build.make drivers/CMakeFiles/drivers_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=4 "Built target drivers_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=6,7 "Built target drivers_generate_messages_lisp"
 .PHONY : drivers/CMakeFiles/drivers_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 drivers/CMakeFiles/drivers_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
 .PHONY : drivers/CMakeFiles/drivers_generate_messages_lisp.dir/rule
@@ -990,35 +1336,6 @@ drivers/CMakeFiles/drivers_generate_messages_lisp.dir/clean:
 .PHONY : drivers/CMakeFiles/drivers_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target drivers/CMakeFiles/drivers_generate_messages_eus.dir
-
-# All Build rule for target.
-drivers/CMakeFiles/drivers_generate_messages_eus.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-drivers/CMakeFiles/drivers_generate_messages_eus.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
-drivers/CMakeFiles/drivers_generate_messages_eus.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/all
-	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_eus.dir/build.make drivers/CMakeFiles/drivers_generate_messages_eus.dir/depend
-	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_eus.dir/build.make drivers/CMakeFiles/drivers_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=2,3 "Built target drivers_generate_messages_eus"
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-drivers_generate_messages_eus: drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule
-
-.PHONY : drivers_generate_messages_eus
-
-# clean rule for target.
-drivers/CMakeFiles/drivers_generate_messages_eus.dir/clean:
-	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_eus.dir/build.make drivers/CMakeFiles/drivers_generate_messages_eus.dir/clean
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_eus.dir/clean
-
-#=============================================================================
 # Target rules for target drivers/CMakeFiles/drivers_geneus.dir
 
 # All Build rule for target.
@@ -1030,7 +1347,7 @@ drivers/CMakeFiles/drivers_geneus.dir/all: drivers/CMakeFiles/drivers_generate_m
 
 # Build rule for subdir invocation for target.
 drivers/CMakeFiles/drivers_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
 .PHONY : drivers/CMakeFiles/drivers_geneus.dir/rule
@@ -1057,7 +1374,7 @@ drivers/CMakeFiles/drivers_genlisp.dir/all: drivers/CMakeFiles/drivers_generate_
 
 # Build rule for subdir invocation for target.
 drivers/CMakeFiles/drivers_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
 .PHONY : drivers/CMakeFiles/drivers_genlisp.dir/rule
@@ -1071,145 +1388,6 @@ drivers_genlisp: drivers/CMakeFiles/drivers_genlisp.dir/rule
 drivers/CMakeFiles/drivers_genlisp.dir/clean:
 	$(MAKE) -f drivers/CMakeFiles/drivers_genlisp.dir/build.make drivers/CMakeFiles/drivers_genlisp.dir/clean
 .PHONY : drivers/CMakeFiles/drivers_genlisp.dir/clean
-
-#=============================================================================
-# Target rules for target drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_py"
-.PHONY : drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-.PHONY : drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# clean rule for target.
-drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-.PHONY : drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
-.PHONY : drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-.PHONY : drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# clean rule for target.
-drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-.PHONY : drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target drivers/CMakeFiles/drivers_generate_messages_nodejs.dir
-
-# All Build rule for target.
-drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/all
-drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/depend
-	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=5 "Built target drivers_generate_messages_nodejs"
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-drivers_generate_messages_nodejs: drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule
-
-.PHONY : drivers_generate_messages_nodejs
-
-# clean rule for target.
-drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/clean
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/clean
-
-#=============================================================================
-# Target rules for target drivers/CMakeFiles/drivers_generate_messages_py.dir
-
-# All Build rule for target.
-drivers/CMakeFiles/drivers_generate_messages_py.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_py.dir/all
-drivers/CMakeFiles/drivers_generate_messages_py.dir/all: drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/all
-drivers/CMakeFiles/drivers_generate_messages_py.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_py.dir/build.make drivers/CMakeFiles/drivers_generate_messages_py.dir/depend
-	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_py.dir/build.make drivers/CMakeFiles/drivers_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=6,7 "Built target drivers_generate_messages_py"
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-drivers/CMakeFiles/drivers_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_py.dir/rule
-
-# Convenience name for target.
-drivers_generate_messages_py: drivers/CMakeFiles/drivers_generate_messages_py.dir/rule
-
-.PHONY : drivers_generate_messages_py
-
-# clean rule for target.
-drivers/CMakeFiles/drivers_generate_messages_py.dir/clean:
-	$(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_py.dir/build.make drivers/CMakeFiles/drivers_generate_messages_py.dir/clean
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target drivers/CMakeFiles/drivers_genpy.dir
-
-# All Build rule for target.
-drivers/CMakeFiles/drivers_genpy.dir/all: drivers/CMakeFiles/drivers_generate_messages_py.dir/all
-	$(MAKE) -f drivers/CMakeFiles/drivers_genpy.dir/build.make drivers/CMakeFiles/drivers_genpy.dir/depend
-	$(MAKE) -f drivers/CMakeFiles/drivers_genpy.dir/build.make drivers/CMakeFiles/drivers_genpy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target drivers_genpy"
-.PHONY : drivers/CMakeFiles/drivers_genpy.dir/all
-
-# Build rule for subdir invocation for target.
-drivers/CMakeFiles/drivers_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_genpy.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-.PHONY : drivers/CMakeFiles/drivers_genpy.dir/rule
-
-# Convenience name for target.
-drivers_genpy: drivers/CMakeFiles/drivers_genpy.dir/rule
-
-.PHONY : drivers_genpy
-
-# clean rule for target.
-drivers/CMakeFiles/drivers_genpy.dir/clean:
-	$(MAKE) -f drivers/CMakeFiles/drivers_genpy.dir/build.make drivers/CMakeFiles/drivers_genpy.dir/clean
-.PHONY : drivers/CMakeFiles/drivers_genpy.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

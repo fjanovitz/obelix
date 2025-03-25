@@ -92,16 +92,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -112,6 +102,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # Special rule for the target test
 test:
@@ -124,16 +125,15 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : edit_cache/fast
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+drivers/CMakeFiles/drivers_generate_messages_py.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_py.dir/rule
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_py.dir/rule
+
+# Convenience name for target.
+drivers_generate_messages_py: drivers/CMakeFiles/drivers_generate_messages_py.dir/rule
+
+.PHONY : drivers_generate_messages_py
+
+# fast build rule for target.
+drivers_generate_messages_py/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_py.dir/build.make drivers/CMakeFiles/drivers_generate_messages_py.dir/build
+.PHONY : drivers_generate_messages_py/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/drivers_gennodejs.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_gennodejs.dir/rule
+.PHONY : drivers/CMakeFiles/drivers_gennodejs.dir/rule
+
+# Convenience name for target.
+drivers_gennodejs: drivers/CMakeFiles/drivers_gennodejs.dir/rule
+
+.PHONY : drivers_gennodejs
+
+# fast build rule for target.
+drivers_gennodejs/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_gennodejs.dir/build.make drivers/CMakeFiles/drivers_gennodejs.dir/build
+.PHONY : drivers_gennodejs/fast
+
+# Convenience name for target.
 drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
 	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 .PHONY : drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
@@ -181,6 +211,21 @@ std_msgs_generate_messages_cpp: drivers/CMakeFiles/std_msgs_generate_messages_cp
 std_msgs_generate_messages_cpp/fast:
 	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_cpp: drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_cpp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_cpp/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
+.PHONY : trajectory_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 drivers/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
@@ -211,6 +256,66 @@ geometry_msgs_generate_messages_cpp: drivers/CMakeFiles/geometry_msgs_generate_m
 geometry_msgs_generate_messages_cpp/fast:
 	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make drivers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
 .PHONY : geometry_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/rule
+.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/rule
+
+# Convenience name for target.
+_drivers_generate_messages_check_deps_Camera: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/rule
+
+.PHONY : _drivers_generate_messages_check_deps_Camera
+
+# fast build rule for target.
+_drivers_generate_messages_check_deps_Camera/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_Camera.dir/build
+.PHONY : _drivers_generate_messages_check_deps_Camera/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+drivers_generate_messages_nodejs: drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule
+
+.PHONY : drivers_generate_messages_nodejs
+
+# fast build rule for target.
+drivers_generate_messages_nodejs/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build
+.PHONY : drivers_generate_messages_nodejs/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+.PHONY : drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_py: drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_py
+
+# fast build rule for target.
+sensor_msgs_generate_messages_py/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+.PHONY : sensor_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+.PHONY : drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_py: drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_py
+
+# fast build rule for target.
+geometry_msgs_generate_messages_py/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+.PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 drivers/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
@@ -318,21 +423,6 @@ drivers_gencpp/fast:
 .PHONY : drivers_gencpp/fast
 
 # Convenience name for target.
-drivers/CMakeFiles/drivers_gennodejs.dir/rule:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_gennodejs.dir/rule
-.PHONY : drivers/CMakeFiles/drivers_gennodejs.dir/rule
-
-# Convenience name for target.
-drivers_gennodejs: drivers/CMakeFiles/drivers_gennodejs.dir/rule
-
-.PHONY : drivers_gennodejs
-
-# fast build rule for target.
-drivers_gennodejs/fast:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_gennodejs.dir/build.make drivers/CMakeFiles/drivers_gennodejs.dir/build
-.PHONY : drivers_gennodejs/fast
-
-# Convenience name for target.
 drivers/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
 	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 .PHONY : drivers/CMakeFiles/std_msgs_generate_messages_py.dir/rule
@@ -346,21 +436,6 @@ std_msgs_generate_messages_py: drivers/CMakeFiles/std_msgs_generate_messages_py.
 std_msgs_generate_messages_py/fast:
 	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/std_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/rule:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/rule
-.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/rule
-
-# Convenience name for target.
-_drivers_generate_messages_check_deps_CaptureImage: drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/rule
-
-.PHONY : _drivers_generate_messages_check_deps_CaptureImage
-
-# fast build rule for target.
-_drivers_generate_messages_check_deps_CaptureImage/fast:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_CaptureImage.dir/build
-.PHONY : _drivers_generate_messages_check_deps_CaptureImage/fast
 
 # Convenience name for target.
 drivers/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
@@ -423,6 +498,111 @@ drivers_generate_messages/fast:
 .PHONY : drivers_generate_messages/fast
 
 # Convenience name for target.
+drivers/CMakeFiles/drivers_genpy.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_genpy.dir/rule
+.PHONY : drivers/CMakeFiles/drivers_genpy.dir/rule
+
+# Convenience name for target.
+drivers_genpy: drivers/CMakeFiles/drivers_genpy.dir/rule
+
+.PHONY : drivers_genpy
+
+# fast build rule for target.
+drivers_genpy/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_genpy.dir/build.make drivers/CMakeFiles/drivers_genpy.dir/build
+.PHONY : drivers_genpy/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_nodejs: drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_nodejs/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_eus: drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_eus
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_eus/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
+.PHONY : trajectory_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_lisp: drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_lisp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_lisp/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
+.PHONY : trajectory_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+.PHONY : drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_py: drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_py
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_py/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
+.PHONY : trajectory_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/rule
+.PHONY : drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/rule
+
+# Convenience name for target.
+_drivers_generate_messages_check_deps_Servo: drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/rule
+
+.PHONY : _drivers_generate_messages_check_deps_Servo
+
+# fast build rule for target.
+_drivers_generate_messages_check_deps_Servo/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/build.make drivers/CMakeFiles/_drivers_generate_messages_check_deps_Servo.dir/build
+.PHONY : _drivers_generate_messages_check_deps_Servo/fast
+
+# Convenience name for target.
+drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule
+.PHONY : drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+drivers_generate_messages_eus: drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule
+
+.PHONY : drivers_generate_messages_eus
+
+# fast build rule for target.
+drivers_generate_messages_eus/fast:
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_eus.dir/build.make drivers/CMakeFiles/drivers_generate_messages_eus.dir/build
+.PHONY : drivers_generate_messages_eus/fast
+
+# Convenience name for target.
 drivers/CMakeFiles/drivers_generate_messages_cpp.dir/rule:
 	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_cpp.dir/rule
 .PHONY : drivers/CMakeFiles/drivers_generate_messages_cpp.dir/rule
@@ -451,21 +631,6 @@ drivers_generate_messages_lisp: drivers/CMakeFiles/drivers_generate_messages_lis
 drivers_generate_messages_lisp/fast:
 	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_lisp.dir/build.make drivers/CMakeFiles/drivers_generate_messages_lisp.dir/build
 .PHONY : drivers_generate_messages_lisp/fast
-
-# Convenience name for target.
-drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-drivers_generate_messages_eus: drivers/CMakeFiles/drivers_generate_messages_eus.dir/rule
-
-.PHONY : drivers_generate_messages_eus
-
-# fast build rule for target.
-drivers_generate_messages_eus/fast:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_eus.dir/build.make drivers/CMakeFiles/drivers_generate_messages_eus.dir/build
-.PHONY : drivers_generate_messages_eus/fast
 
 # Convenience name for target.
 drivers/CMakeFiles/drivers_geneus.dir/rule:
@@ -497,81 +662,6 @@ drivers_genlisp/fast:
 	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_genlisp.dir/build.make drivers/CMakeFiles/drivers_genlisp.dir/build
 .PHONY : drivers_genlisp/fast
 
-# Convenience name for target.
-drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make drivers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-drivers_generate_messages_nodejs: drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/rule
-
-.PHONY : drivers_generate_messages_nodejs
-
-# fast build rule for target.
-drivers_generate_messages_nodejs/fast:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build.make drivers/CMakeFiles/drivers_generate_messages_nodejs.dir/build
-.PHONY : drivers_generate_messages_nodejs/fast
-
-# Convenience name for target.
-drivers/CMakeFiles/drivers_generate_messages_py.dir/rule:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_generate_messages_py.dir/rule
-.PHONY : drivers/CMakeFiles/drivers_generate_messages_py.dir/rule
-
-# Convenience name for target.
-drivers_generate_messages_py: drivers/CMakeFiles/drivers_generate_messages_py.dir/rule
-
-.PHONY : drivers_generate_messages_py
-
-# fast build rule for target.
-drivers_generate_messages_py/fast:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_generate_messages_py.dir/build.make drivers/CMakeFiles/drivers_generate_messages_py.dir/build
-.PHONY : drivers_generate_messages_py/fast
-
-# Convenience name for target.
-drivers/CMakeFiles/drivers_genpy.dir/rule:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drivers/CMakeFiles/drivers_genpy.dir/rule
-.PHONY : drivers/CMakeFiles/drivers_genpy.dir/rule
-
-# Convenience name for target.
-drivers_genpy: drivers/CMakeFiles/drivers_genpy.dir/rule
-
-.PHONY : drivers_genpy
-
-# fast build rule for target.
-drivers_genpy/fast:
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build && $(MAKE) -f drivers/CMakeFiles/drivers_genpy.dir/build.make drivers/CMakeFiles/drivers_genpy.dir/build
-.PHONY : drivers_genpy/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -581,11 +671,19 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... install"
-	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... test"
+	@echo "... drivers_generate_messages_py"
+	@echo "... drivers_gennodejs"
 	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... _drivers_generate_messages_check_deps_Camera"
+	@echo "... drivers_generate_messages_nodejs"
+	@echo "... sensor_msgs_generate_messages_py"
+	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_lisp"
@@ -593,25 +691,23 @@ help:
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... drivers_gencpp"
-	@echo "... drivers_gennodejs"
 	@echo "... std_msgs_generate_messages_py"
-	@echo "... _drivers_generate_messages_check_deps_CaptureImage"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... drivers_generate_messages"
+	@echo "... drivers_genpy"
+	@echo "... trajectory_msgs_generate_messages_nodejs"
+	@echo "... trajectory_msgs_generate_messages_eus"
+	@echo "... trajectory_msgs_generate_messages_lisp"
+	@echo "... list_install_components"
+	@echo "... trajectory_msgs_generate_messages_py"
+	@echo "... _drivers_generate_messages_check_deps_Servo"
+	@echo "... drivers_generate_messages_eus"
 	@echo "... drivers_generate_messages_cpp"
 	@echo "... drivers_generate_messages_lisp"
-	@echo "... drivers_generate_messages_eus"
 	@echo "... drivers_geneus"
 	@echo "... drivers_genlisp"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... drivers_generate_messages_nodejs"
-	@echo "... drivers_generate_messages_py"
-	@echo "... drivers_genpy"
-	@echo "... test"
-	@echo "... edit_cache"
 .PHONY : help
 
 

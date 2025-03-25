@@ -53,20 +53,32 @@ CMAKE_BINARY_DIR = /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build
 # Include the progress variables for this target.
 include drivers/CMakeFiles/drivers_generate_messages_cpp.dir/progress.make
 
-drivers/CMakeFiles/drivers_generate_messages_cpp: /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/CaptureImage.h
+drivers/CMakeFiles/drivers_generate_messages_cpp: /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Camera.h
+drivers/CMakeFiles/drivers_generate_messages_cpp: /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Servo.h
 
 
-/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/CaptureImage.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/CaptureImage.h: /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv
-/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/CaptureImage.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/CaptureImage.h: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
-/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/CaptureImage.h: /opt/ros/noetic/share/gencpp/msg.h.template
-/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/CaptureImage.h: /opt/ros/noetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from drivers/CaptureImage.srv"
-	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers && /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/CaptureImage.srv -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p drivers -o /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Camera.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Camera.h: /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Camera.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Camera.h: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Camera.h: /opt/ros/noetic/share/gencpp/msg.h.template
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Camera.h: /opt/ros/noetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from drivers/Camera.srv"
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers && /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Itrajectory_msgs:/opt/ros/noetic/share/trajectory_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p drivers -o /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers -e /opt/ros/noetic/share/gencpp/cmake/..
+
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Servo.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Servo.h: /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Servo.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Servo.h: /opt/ros/noetic/share/trajectory_msgs/msg/JointTrajectory.msg
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Servo.h: /opt/ros/noetic/share/trajectory_msgs/msg/JointTrajectoryPoint.msg
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Servo.h: /opt/ros/noetic/share/gencpp/msg.h.template
+/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Servo.h: /opt/ros/noetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from drivers/Servo.srv"
+	cd /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers && /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Itrajectory_msgs:/opt/ros/noetic/share/trajectory_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p drivers -o /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers -e /opt/ros/noetic/share/gencpp/cmake/..
 
 drivers_generate_messages_cpp: drivers/CMakeFiles/drivers_generate_messages_cpp
-drivers_generate_messages_cpp: /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/CaptureImage.h
+drivers_generate_messages_cpp: /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Camera.h
+drivers_generate_messages_cpp: /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/include/drivers/Servo.h
 drivers_generate_messages_cpp: drivers/CMakeFiles/drivers_generate_messages_cpp.dir/build.make
 
 .PHONY : drivers_generate_messages_cpp
