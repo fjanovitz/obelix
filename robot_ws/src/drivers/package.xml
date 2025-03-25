@@ -70,7 +70,10 @@
   <depend>python3-seaborn</depend>
 =======
   <depend>trajectory_msgs</depend>
->>>>>>> 8daf6a4c074d869fc2e9bc7c76a7355cea2c6f6b
+  <depend>ydlidar</depend>
+  <depend>python3-matplotlib</depend>
+  <depend>python3-numpy</depend>
+  <depend>python3-seaborn</depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
