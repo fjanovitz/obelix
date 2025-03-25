@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   sensor_msgs
   std_msgs
+  trajectory_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -58,8 +59,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate services in the 'srv' folder
 add_service_files(
   FILES
-  CaptureImage.srv
-#   Service2.srv
+  Camera.srv
+  Servo.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -74,6 +75,7 @@ generate_messages(
    DEPENDENCIES
    sensor_msgs
    std_msgs
+   trajectory_msgs
 )
 
 ################################################
@@ -108,7 +110,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES camera
-CATKIN_DEPENDS cv_bridge sensor_msgs message_runtime rospy std_msgs
+CATKIN_DEPENDS cv_bridge sensor_msgs message_runtime rospy std_msgs trajectory_msgs
 #  DEPENDS system_lib
 )
 
