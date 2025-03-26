@@ -21,8 +21,8 @@ class BaseController:
         self.ENABLE_B = 13
 
         # Configuração dos pinos dos encoders
-        self.ENCODER1 = 5 # Exemplo, ajuste conforme necessário
-        self.ENCODER2 = 6 # Exemplo, ajuste conforme necessário
+        self.ENCODER1 = 5 
+        self.ENCODER2 = 6
 
         # Configuração do modo dos pinos GPIO
         GPIO.setup(self.MOTOR1_IN1, GPIO.OUT)
@@ -70,8 +70,8 @@ class BaseController:
         angular_vel = msg.angular.z
 
         # Calcular velocidades angulares desejadas
-        left_wheel_vel_desired = (linear_vel - (angular_vel * self.wheel_separation / 2)) / self.wheel_radius
-        right_wheel_vel_desired = (linear_vel + (angular_vel * self.wheel_separation / 2)) / self.wheel_radius
+        left_wheel_vel_desired = (linear_vel - (angular_vel * self.wheel_separation)) / self.wheel_radius
+        right_wheel_vel_desired = (linear_vel + (angular_vel * self.wheel_separation)) / self.wheel_radius
 
         # Calcular velocidades angulares reais
         current_time = rospy.Time.now().to_sec()
@@ -139,3 +139,13 @@ if __name__ == '__main__':
         pass
     finally:
         controller.cleanup()
+
+# rostopic pub /cmd_vel geometry_msgs/Twist -r 2 \
+# 'linear:
+#   x: 0.0
+#   y: 0.0
+#   z: 0.0
+# angular:
+#   x: 0.0
+#   y: 0.0
+#   z: 0.0'
