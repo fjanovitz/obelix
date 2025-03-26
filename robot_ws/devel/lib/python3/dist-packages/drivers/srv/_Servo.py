@@ -378,12 +378,15 @@ import struct
 
 
 class ServoResponse(genpy.Message):
-  _md5sum = "d41d8cd98f00b204e9800998ecf8427e"
+  _md5sum = "861bf17e2686cee0227971b17a17e4b7"
   _type = "drivers/ServoResponse"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """"""
-  __slots__ = []
-  _slot_types = []
+  _full_text = """bool success
+string message
+float32 angle
+"""
+  __slots__ = ['success','message','angle']
+  _slot_types = ['bool','string','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -393,7 +396,7 @@ class ServoResponse(genpy.Message):
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       
+       success,message,angle
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -401,6 +404,17 @@ class ServoResponse(genpy.Message):
     """
     if args or kwds:
       super(ServoResponse, self).__init__(*args, **kwds)
+      # message fields cannot be None, assign default values for those that are
+      if self.success is None:
+        self.success = False
+      if self.message is None:
+        self.message = ''
+      if self.angle is None:
+        self.angle = 0.
+    else:
+      self.success = False
+      self.message = ''
+      self.angle = 0.
 
   def _get_types(self):
     """
@@ -414,7 +428,16 @@ class ServoResponse(genpy.Message):
     :param buff: buffer, ``StringIO``
     """
     try:
-      pass
+      _x = self.success
+      buff.write(_get_struct_B().pack(_x))
+      _x = self.message
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self.angle
+      buff.write(_get_struct_f().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -427,6 +450,22 @@ class ServoResponse(genpy.Message):
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      start = end
+      end += 1
+      (self.success,) = _get_struct_B().unpack(str[start:end])
+      self.success = bool(self.success)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.message = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.message = str[start:end]
+      start = end
+      end += 4
+      (self.angle,) = _get_struct_f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -439,7 +478,16 @@ class ServoResponse(genpy.Message):
     :param numpy: numpy python module
     """
     try:
-      pass
+      _x = self.success
+      buff.write(_get_struct_B().pack(_x))
+      _x = self.message
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self.angle
+      buff.write(_get_struct_f().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -453,6 +501,22 @@ class ServoResponse(genpy.Message):
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      start = end
+      end += 1
+      (self.success,) = _get_struct_B().unpack(str[start:end])
+      self.success = bool(self.success)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.message = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.message = str[start:end]
+      start = end
+      end += 4
+      (self.angle,) = _get_struct_f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -461,8 +525,20 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
+_struct_B = None
+def _get_struct_B():
+    global _struct_B
+    if _struct_B is None:
+        _struct_B = struct.Struct("<B")
+    return _struct_B
+_struct_f = None
+def _get_struct_f():
+    global _struct_f
+    if _struct_f is None:
+        _struct_f = struct.Struct("<f")
+    return _struct_f
 class Servo(object):
   _type          = 'drivers/Servo'
-  _md5sum = '2a0eff76c870e8595636c2a562ca298e'
+  _md5sum = '428cab90410b1d6fe55c007dc4fc1e69'
   _request_class  = ServoRequest
   _response_class = ServoResponse

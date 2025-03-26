@@ -3,7 +3,7 @@
 import rospy
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
-from drivers.srv import CaptureImage
+from drivers.srv import Camera
 import sys
 
 def capture_image_client():
@@ -13,7 +13,7 @@ def capture_image_client():
     rospy.wait_for_service("image")
     
     try:
-        capture_service = rospy.ServiceProxy("image", CaptureImage)
+        capture_service = rospy.ServiceProxy("image", Camera)
         
         rospy.loginfo("Requisitando imagem capturada")
         response = capture_service()

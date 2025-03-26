@@ -24,14 +24,27 @@ struct ServoResponse_
   typedef ServoResponse_<ContainerAllocator> Type;
 
   ServoResponse_()
-    {
+    : success(false)
+    , message()
+    , angle(0.0)  {
     }
   ServoResponse_(const ContainerAllocator& _alloc)
-    {
+    : success(false)
+    , message(_alloc)
+    , angle(0.0)  {
   (void)_alloc;
     }
 
 
+
+   typedef uint8_t _success_type;
+  _success_type success;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _message_type;
+  _message_type message;
+
+   typedef float _angle_type;
+  _angle_type angle;
 
 
 
@@ -59,6 +72,21 @@ return s;
 }
 
 
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::drivers::ServoResponse_<ContainerAllocator1> & lhs, const ::drivers::ServoResponse_<ContainerAllocator2> & rhs)
+{
+  return lhs.success == rhs.success &&
+    lhs.message == rhs.message &&
+    lhs.angle == rhs.angle;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::drivers::ServoResponse_<ContainerAllocator1> & lhs, const ::drivers::ServoResponse_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace drivers
 
 namespace ros
@@ -82,12 +110,12 @@ struct IsMessage< ::drivers::ServoResponse_<ContainerAllocator> const>
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::drivers::ServoResponse_<ContainerAllocator> >
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::drivers::ServoResponse_<ContainerAllocator> const>
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -106,12 +134,12 @@ struct MD5Sum< ::drivers::ServoResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "d41d8cd98f00b204e9800998ecf8427e";
+    return "861bf17e2686cee0227971b17a17e4b7";
   }
 
   static const char* value(const ::drivers::ServoResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xd41d8cd98f00b204ULL;
-  static const uint64_t static_value2 = 0xe9800998ecf8427eULL;
+  static const uint64_t static_value1 = 0x861bf17e2686cee0ULL;
+  static const uint64_t static_value2 = 0x227971b17a17e4b7ULL;
 };
 
 template<class ContainerAllocator>
@@ -130,7 +158,9 @@ struct Definition< ::drivers::ServoResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "\n"
+    return "bool success\n"
+"string message\n"
+"float32 angle\n"
 ;
   }
 
@@ -147,8 +177,12 @@ namespace serialization
 
   template<class ContainerAllocator> struct Serializer< ::drivers::ServoResponse_<ContainerAllocator> >
   {
-    template<typename Stream, typename T> inline static void allInOne(Stream&, T)
-    {}
+    template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
+    {
+      stream.next(m.success);
+      stream.next(m.message);
+      stream.next(m.angle);
+    }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct ServoResponse_
@@ -164,8 +198,15 @@ namespace message_operations
 template<class ContainerAllocator>
 struct Printer< ::drivers::ServoResponse_<ContainerAllocator> >
 {
-  template<typename Stream> static void stream(Stream&, const std::string&, const ::drivers::ServoResponse_<ContainerAllocator>&)
-  {}
+  template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::drivers::ServoResponse_<ContainerAllocator>& v)
+  {
+    s << indent << "success: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.success);
+    s << indent << "message: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.message);
+    s << indent << "angle: ";
+    Printer<float>::stream(s, indent + "  ", v.angle);
+  }
 };
 
 } // namespace message_operations
