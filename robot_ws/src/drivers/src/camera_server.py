@@ -17,6 +17,8 @@ class CameraServer:
             rospy.logerr("Não foi possível abrir a câmera")
             return
 
+        time.sleep(2)
+
         # Configura para liberar a câmera entre capturas
         self.camera.set(cv2.CAP_PROP_BUFFERSIZE, 1)
         
@@ -29,7 +31,7 @@ class CameraServer:
             for _ in range(3):
                 self.camera.grab()
             
-            ret, frame = self.camera.retrieve()
+            ret, frame = self.camera.read()
             
             if not ret:
                 rospy.logerr("Falha ao capturar frame")

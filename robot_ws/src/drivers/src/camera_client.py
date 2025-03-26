@@ -24,11 +24,6 @@ def capture_image_client():
         cv2.imwrite(image_path, cv_image)
         rospy.loginfo(f"Imagem salva como {os.path.abspath(image_path)}")
         
-        # Mostra a imagem por 2 segundos
-        cv2.imshow("Última Captura", cv_image)
-        cv2.waitKey(2000)
-        cv2.destroyAllWindows()
-        
     except (rospy.ServiceException, CvBridgeError) as e:
         rospy.logerr(f"Erro: {e}")
 
