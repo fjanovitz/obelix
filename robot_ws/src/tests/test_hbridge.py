@@ -84,8 +84,8 @@ try:
 
     # Testar ambos os motores juntos
     print("Ambos os motores para frente (100% de velocidade)")
-    motor1_forward(100)
-    motor2_forward(100)
+    motor1_forward(25)
+    motor2_forward(25)
     time.sleep(2)
     stop_motors()
     

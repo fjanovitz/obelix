@@ -1,236 +1,141 @@
 #!/usr/bin/env python3
 
-import RPi.GPIO as GPIO
 import rospy
-import time
-import math
 from geometry_msgs.msg import Twist
+import RPi.GPIO as GPIO
 
-# Configurar GPIO
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
+class BaseController:
+    def __init__(self):
+        # Configurações do ROS
+        rospy.init_node('base_controller', anonymous=True)
+        rospy.Subscriber('cmd_vel', Twist, self.twist_callback)
+        rospy.loginfo("Nó do Controlador disponível! Aguardando comandos...")
 
-# -------------------------
-# PINOS MOTORES E ENABLERS
-# -------------------------
-MOTOR1_IN1 = 24
-MOTOR1_IN2 = 25
-MOTOR2_IN3 = 26
-MOTOR2_IN4 = 16
-ENABLE_A   = 20
-ENABLE_B   = 13
+        # Configurações dos pinos GPIO (usando numeração BCM)
+        GPIO.setmode(GPIO.BCM)
+        self.MOTOR1_IN1 = 24
+        self.MOTOR1_IN2 = 25
+        self.MOTOR2_IN3 = 26
+        self.MOTOR2_IN4 = 16
+        self.ENABLE_A = 20
+        self.ENABLE_B = 13
 
-# Configuração dos pinos
-GPIO.setup(MOTOR1_IN1, GPIO.OUT)
-GPIO.setup(MOTOR1_IN2, GPIO.OUT)
-GPIO.setup(MOTOR2_IN3, GPIO.OUT)
-GPIO.setup(MOTOR2_IN4, GPIO.OUT)
-GPIO.setup(ENABLE_A,   GPIO.OUT)
-GPIO.setup(ENABLE_B,   GPIO.OUT)
+        # Configuração dos pinos dos encoders
+        self.ENCODER1 = 5 # Exemplo, ajuste conforme necessário
+        self.ENCODER2 = 6 # Exemplo, ajuste conforme necessário
 
-pwm_a = GPIO.PWM(ENABLE_A, 1000)  # Frequência de 1000 Hz
-pwm_b = GPIO.PWM(ENABLE_B, 1000)
+        # Configuração do modo dos pinos GPIO
+        GPIO.setup(self.MOTOR1_IN1, GPIO.OUT)
+        GPIO.setup(self.MOTOR1_IN2, GPIO.OUT)
+        GPIO.setup(self.MOTOR2_IN3, GPIO.OUT)
+        GPIO.setup(self.MOTOR2_IN4, GPIO.OUT)
+        GPIO.setup(self.ENABLE_A, GPIO.OUT)
+        GPIO.setup(self.ENABLE_B, GPIO.OUT)
 
-pwm_a.start(0)
-pwm_b.start(0)
+        # Configuração do modo dos encoders
+        GPIO.setup(self.ENCODER1, GPIO.IN)
+        GPIO.setup(self.ENCODER2, GPIO.IN)
 
-# -------------------------
-# PINOS CODIFICADORES
-# -------------------------
+        # Configuração do PWM para os pinos ENABLE
+        self.pwm_a = GPIO.PWM(self.ENABLE_A, 1000)  # Frequência de 1000 Hz
+        self.pwm_b = GPIO.PWM(self.ENABLE_B, 1000)
+        self.pwm_a.start(0)  # Iniciar com duty cycle de 0%
+        self.pwm_b.start(0)
 
-ENCODER_LEFT = 5  # Exemplo: GPIO 5
-ENCODER_RIGHT = 6 # Exemplo: GPIO 6
+        # Variáveis para contagem dos encoders
+        self.encoder1_count = 0
+        self.encoder2_count = 0
 
-GPIO.setup(ENCODER_LEFT, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(ENCODER_RIGHT, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        # Variáveis para cálculo da velocidade angular
+        self.last_encoder1_count = 0
+        self.last_encoder2_count = 0
+        self.last_time = rospy.Time.now().to_sec()
 
-# ------------------------------------------------------
-# VARIÁVEIS GLOBAIS PARA A LÓGICA
-# ------------------------------------------------------
-# Contador de pulsos para cada motor
-left_count = 0
-right_count = 0
+        # Variáveis para cálculo da velocidade angular desejada
+        self.wheel_radius = 0.0375  # Raio da roda em metros
+        self.wheel_separation = 0.2185  # Distância entre as rodas em metros
 
-# Taxa de atualização (Hz)
-UPDATE_RATE = 20.0
+        # Configurações do controlador PID
+        self.kp = 10.0
+        self.ki = 0.0
+        self.kd = 0.0
+        self.last_error_a = 0
+        self.integral_a = 0
+        self.last_error_b = 0
+        self.integral_b = 0
 
-# Constantes do robô
-D          = 0.2185
-R          = 0.0375 
-PPR        = 11
-gear_ratio = 1.0
+    def twist_callback(self, msg):
+        """Callback para receber mensagens Twist."""
+        linear_vel = msg.linear.x
+        angular_vel = msg.angular.z
 
-# Constantes do controlador PID
-KP = 0.0
-KI = 0.0
-KD = 0.0
+        # Calcular velocidades angulares desejadas
+        left_wheel_vel_desired = (linear_vel - (angular_vel * self.wheel_separation / 2)) / self.wheel_radius
+        right_wheel_vel_desired = (linear_vel + (angular_vel * self.wheel_separation / 2)) / self.wheel_radius
 
-# Erro acumulado e último erro para o termo integrativo e derivativo
-acc_error_left   = 0.0
-acc_error_right  = 0.0
-prev_error_left  = 0.0
-prev_error_right = 0.0
+        # Calcular velocidades angulares reais
+        current_time = rospy.Time.now().to_sec()
+        elapsed_time = current_time - self.last_time
+        encoder1_delta = self.encoder1_count - self.last_encoder1_count
+        encoder2_delta = self.encoder2_count - self.last_encoder2_count
+        left_wheel_vel_actual = encoder1_delta / elapsed_time
+        right_wheel_vel_actual = encoder2_delta / elapsed_time
 
-# Velocidades desejadas (vindas do Twist) e medidas
-linear_vel  = 0.0
-angular_vel = 0.0
+        # Calcular erros
+        error_a = left_wheel_vel_desired - left_wheel_vel_actual
+        error_b = right_wheel_vel_desired - right_wheel_vel_actual
 
-# ------------------------------------------------------
-# FUNÇÕES DE AJUSTE DE PWM (ENVIO PARA A PONTE H)
-# ------------------------------------------------------
+        # Calcular sinais de controle PID
+        self.integral_a += error_a * elapsed_time
+        derivative_a = (error_a - self.last_error_a) / elapsed_time
+        control_signal_a = self.kp * error_a + self.ki * self.integral_a + self.kd * derivative_a
 
-def set_left_speed(speed):
-    """ Define a velocidade do motor esquerdo (0 a 100) """
-    if speed > 0:
-        GPIO.output(MOTOR1_IN1, GPIO.HIGH)
-        GPIO.output(MOTOR1_IN2, GPIO.LOW)
-    elif speed == 0:
-        GPIO.output(MOTOR1_IN1, GPIO.LOW)
-        GPIO.output(MOTOR1_IN2, GPIO.LOW)
-    else:
-        GPIO.output(MOTOR1_IN1, GPIO.LOW)
-        GPIO.output(MOTOR1_IN2, GPIO.HIGH)
-    pwm_a.ChangeDutyCycle(speed)
+        self.integral_b += error_b * elapsed_time
+        derivative_b = (error_b - self.last_error_b) / elapsed_time
+        control_signal_b = self.kp * error_b + self.ki * self.integral_b + self.kd * derivative_b
 
-def set_right_speed(speed):
-    """ Define a velocidade do motor direito (0 a 100) """
-    if speed > 0:
-        GPIO.output(MOTOR2_IN3, GPIO.HIGH)
-        GPIO.output(MOTOR2_IN4, GPIO.LOW)
-    elif speed == 0:
-        GPIO.output(MOTOR2_IN3, GPIO.LOW)
-        GPIO.output(MOTOR2_IN4, GPIO.LOW)
-    else:
-        GPIO.output(MOTOR2_IN3, GPIO.LOW)
-        GPIO.output(MOTOR2_IN4, GPIO.HIGH)
-    pwm_b.ChangeDutyCycle(speed)
+        # Enviar sinais PWM para a ponte H
+        self.set_motor_speed(self.pwm_a, control_signal_a, self.MOTOR1_IN1, self.MOTOR1_IN2)
+        self.set_motor_speed(self.pwm_b, control_signal_b, self.MOTOR2_IN3, self.MOTOR2_IN4)
 
-# ------------------------------------------------------
-# CALLBACK DOS ENCODERS
-# Usamos interrupção para contar pulsos
-# ------------------------------------------------------
-def callback_encoder_left(channel):
-    global left_count
-    left_count += 1
+        # Atualizar variáveis
+        self.last_encoder1_count = self.encoder1_count
+        self.last_encoder2_count = self.encoder2_count
+        self.last_time = current_time
+        self.last_error_a = error_a
+        self.last_error_b = error_b
 
-def callback_encoder_right(channel):
-    global right_count
-    right_count += 1
+    def set_motor_speed(self, pwm, control_signal, in1_pin, in2_pin):
+        """Envia sinal PWM para a ponte H."""
+        speed = abs(control_signal)
+        if speed > 100:
+            speed = 100
 
-# ------------------------------------------------------
-# CALLBACK DO TWIST (velocidade linear e angular desejadas)
-# ------------------------------------------------------
-def callback_cmd_vel(msg):
-    """
-    Recebe a velocidade linear (m/s) e angular (rad/s).
-    Armazena para ser usada no loop de controle.
-    """
-    global linear_vel, angular_vel
-    linear_vel  = msg.linear.x
-    angular_vel = msg.angular.z
+        if control_signal > 0:
+            GPIO.output(in1_pin, GPIO.HIGH)
+            GPIO.output(in2_pin, GPIO.LOW)
+        else:
+            GPIO.output(in1_pin, GPIO.LOW)
+            GPIO.output(in2_pin, GPIO.HIGH)
 
-# ------------------------------------------------------
-# FUNÇÃO PRINCIPAL DE CONTROLE
-# ------------------------------------------------------
-def controlador_base():
-    """
-    - Conta pulsos em certo intervalo
-    - Calcula velocidade real
-    - Calcula velocidade desejada de cada roda
-    - Calcula PID
-    - Aplica PWM
-    """
+        pwm.ChangeDutyCycle(speed)
 
-    global left_count, right_count
-    global acc_error_left, acc_error_right
-    global prev_error_left,  prev_error_right
+    def run(self):
+        """Executa o nó ROS."""
+        rospy.spin()
 
-    rate = rospy.Rate(UPDATE_RATE)
+    def cleanup(self):
+        """Limpa os pinos GPIO ao finalizar."""
+        self.pwm_a.stop()
+        self.pwm_b.stop()
+        GPIO.cleanup()
+        rospy.loginfo("GPIO limpo e programa finalizado.")
 
-    # Parâmetro: tempo entre cada iteração
-    Ts = 1.0 / UPDATE_RATE
-
-    while not rospy.is_shutdown():
-        # 1) Ler contagem do encoder e zerar
-        pulse_counter_left = left_count
-        pulse_counter_right = right_count
-        left_count  = 0
-        right_count = 0
-
-        # 2) Calcular velocidade angular real (rad/s)
-        # pulsos -> voltas -> rad/s
-        # pulse_counter_left / PPR = número de voltas no intervalo
-        # Como gear_ratio é a razão de redução (ex. 46),
-        # a roda gira (1/gear_ratio) voltas para cada volta do eixo motor, se for esse o caso.
-        angular_vel_left = (2.0 * math.pi) * (pulse_counter_left / (PPR*gear_ratio)) / Ts
-        angular_vel_right = (2.0 * math.pi) * (pulse_counter_right / (PPR*gear_ratio)) / Ts
-
-        # 3) Calcular velocidade angular desejada de cada roda, a partir de (v, w)
-        # Equações inversas:
-        # uL = v/R - D*w/R
-        # uR = v/R + D*w/R
-        des_angular_left = (linear_vel / R) - (angular_vel * D / R)
-        des_angular_right = (linear_vel / R) + (angular_vel * D / R)
-
-        # 4) Controlador PID (simplificado). A saída do PID será o Duty Cycle [0..100]
-        # erro = w_desejada - w_medida
-        error_left = des_angular_left - angular_vel_left
-        error_right = des_angular_right - angular_vel_right
-
-        # Acumular erro (integral)
-        acc_error_left += error_left * Ts
-        acc_error_right += error_right * Ts
-
-        # Derivada do erro
-        deriv_left = (error_left - prev_error_left) / Ts
-        deriv_right = (error_right - prev_error_right) / Ts
-
-        # PID
-        control_left = KP*error_left + KI*acc_error_left + KD*deriv_left
-        control_right = KP*error_right + KI*acc_error_right + KD*deriv_right
-
-        # Atualiza "prev_error"
-        prev_error_left = error_left
-        prev_error_right = error_right
-
-        # 5) Enviar sinal PWM (com saturação entre 0% e 100%)
-        pwm_left = control_left
-        pwm_right = control_right
-
-        # Saturação
-        if pwm_left > 100: pwm_left = 100
-        if pwm_left < -100: pwm_left = -100
-        if pwm_right > 100: pwm_right = 100
-        if pwm_right < -100: pwm_right = -100
-
-        # Se pwm for negativo, giramos para trás
-        set_left_speed(pwm_left)
-        set_right_speed(pwm_right)
-
-        rate.sleep()
-
-# ------------------------------------------------------
-# MAIN
-# ------------------------------------------------------
-if __name__ == "__main__":
+if __name__ == '__main__':
     try:
-        rospy.init_node("base_controller", anonymous=False)
-
-        # Registrar callbacks de interrupção do encoder
-        GPIO.add_event_detect(ENCODER_LEFT,  GPIO.RISING, callback=callback_encoder_left)
-        GPIO.add_event_detect(ENCODER_RIGHT, GPIO.RISING, callback=callback_encoder_right)
-
-        # Subscriber para velocidade desejada
-        rospy.Subscriber("/cmd_vel", Twist, callback_cmd_vel)
-
-        rospy.loginfo("Nó do Controlador iniciado! Aguardando comandos no formato Twist em /cmd_vel ...")
-        controlador_base()
-
+        controller = BaseController()
+        controller.run()
     except rospy.ROSInterruptException:
         pass
     finally:
-        set_left_speed(0)
-        set_right_speed(0)
-        pwm_a.stop()
-        pwm_b.stop()
-        GPIO.cleanup()
+        controller.cleanup()
