@@ -26,6 +26,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/src/camera_client.py"
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/src/camera_server.py"
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/src/lidar_publisher.py"
+  "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/src/mapping.py"
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/src/servo_client.py"
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/src/servo_controller.py"
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/maze/CMakeLists.txt"

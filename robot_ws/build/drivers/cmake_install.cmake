@@ -111,3 +111,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/drivers" TYPE PROGRAM FILES "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers/catkin_generated/installspace/servo_controller.py")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/drivers" TYPE PROGRAM FILES "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers/catkin_generated/installspace/mapping.py")
+endif()
+

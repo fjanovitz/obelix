@@ -4,36 +4,28 @@ import rospy
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
 from drivers.srv import Camera
-import sys
+import time
+import os
 
 def capture_image_client():
     rospy.init_node("camera_client")
+    bridge = CvBridge()
     
-    rospy.loginfo("Esperando o serviço de câmera")
     rospy.wait_for_service("image")
+    capture_service = rospy.ServiceProxy("image", Camera)
+    
+    timestamp = time.strftime("%Y%m%d_%H%M%S")
+    image_path = f"camera_{timestamp}.jpg"
     
     try:
-        capture_service = rospy.ServiceProxy("image", Camera)
-        
-        rospy.loginfo("Requisitando imagem capturada")
         response = capture_service()
+        cv_image = bridge.imgmsg_to_cv2(response.image, "bgr8")
         
-        bridge = CvBridge()
-        try:
-            cv_image = bridge.imgmsg_to_cv2(response.image, "bgr8")
-            
-            image_path = "image.jpg"
-            cv2.imwrite(image_path, cv_image)
-            rospy.loginfo(f"Imagem salva como {image_path}")
-            
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            
-        except CvBridgeError as e:
-            rospy.logerr(f"Erro no CV Bridge: {e}")
+        cv2.imwrite(image_path, cv_image)
+        rospy.loginfo(f"Imagem salva como {os.path.abspath(image_path)}")
         
-    except rospy.ServiceException as e:
-        rospy.logerr(f"Chamada ao serviço de câmera falhou: {e}")
+    except (rospy.ServiceException, CvBridgeError) as e:
+        rospy.logerr(f"Erro: {e}")
 
 if __name__ == "__main__":
     try:
