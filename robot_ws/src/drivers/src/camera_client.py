@@ -20,6 +20,11 @@ def capture_image_client():
     try:
         response = capture_service()
         cv_image = bridge.imgmsg_to_cv2(response.image, "bgr8")
+
+        one_third_width = cv_image.shape[1] // 3
+        second_third_width = 2 * cv_image.shape[1] // 3
+
+        cv_image = cv_image[:, one_third_width:second_third_width]
         
         cv2.imwrite(image_path, cv_image)
         rospy.loginfo(f"Imagem salva como {os.path.abspath(image_path)}")

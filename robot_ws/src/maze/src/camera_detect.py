@@ -32,8 +32,10 @@ def detect_green_in_image():
         green_mask = cv2.dilate(green_mask, kernal)
         
         if cv2.countNonZero(green_mask) > 0:
+            rospy.loginfo("True")
             return True
         else:
+            rospy.loginfo("False")
             return False
         
     except (rospy.ServiceException, CvBridgeError) as e:
