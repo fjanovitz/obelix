@@ -6,7 +6,6 @@ from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image
 from drivers.srv import Camera, CameraResponse  # Isso deve ser um serviço definido em outro arquivo
 import time
-import numpy as np
 
 class CameraServer:
     def __init__(self):
