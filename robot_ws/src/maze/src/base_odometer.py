@@ -4,6 +4,7 @@ import rospy
 import RPi.GPIO as GPIO
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Quaternion
+from std_msgs.msg import Int32MultiArray
 import tf
 import math
 import time
@@ -39,7 +40,8 @@ def main():
     global count_left, count_right, x, y, theta
 
     rospy.init_node('base_odometry_node')
-    pub = rospy.Publisher('/base_odometry', Odometry, queue_size=10)
+    # pub = rospy.Publisher('/base_odometry', Odometry, queue_size=10)
+    pub = rospy.Publisher('/base_odometry', Int32MultiArray, queue_size=10)
     br = tf.TransformBroadcaster()
 
     GPIO.setmode(GPIO.BCM)
@@ -88,12 +90,15 @@ def main():
         odom.twist.twist.angular.z = delta_theta / dt
 
         # Publicar odometria e tf
-        pub.publish(odom)
-        br.sendTransform((x, y, 0.0),
-                         tf.transformations.quaternion_from_euler(0, 0, theta),
-                         now,
-                         "base_link",
-                         "odom")
+        msg = Int32MultiArray()
+        msg.data = [delta_left, delta_right]
+        pub.publish(msg)
+        # pub.publish(odom)
+        # br.sendTransform((x, y, 0.0),
+        #                  tf.transformations.quaternion_from_euler(0, 0, theta),
+        #                  now,
+        #                  "base_link",
+        #                  "odom")
 
         # Atualizar variáveis
         last_count_left = count_left

@@ -406,6 +406,9 @@ cv_bridge_DIR:PATH=/opt/ros/noetic/share/cv_bridge/cmake
 //Value Computed by CMake
 drivers_BINARY_DIR:STATIC=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers
 
+//The directory containing a CMake configuration file for drivers.
+drivers_DIR:PATH=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel/share/drivers/cmake
+
 //Value Computed by CMake
 drivers_SOURCE_DIR:STATIC=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers
 

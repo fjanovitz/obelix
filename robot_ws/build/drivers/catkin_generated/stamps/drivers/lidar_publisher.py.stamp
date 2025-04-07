@@ -27,9 +27,9 @@ def polar_to_cartesian(points):
     # Converte coordenadas polares (ângulo, distância) em cartesianas (X, Y). 
     cartesian_points = []
     for p in points:
-        if 0.12 <= p.range <= 16.0:  # Filtrando distâncias válidas
-            x = p.range * math.cos(math.radians(p.angle))
-            y = p.range * math.sin(math.radians(p.angle))
+        if 0.12 <= p.range <= 6.0:  # Filtrando distâncias válidas
+            x = p.range * math.cos(p.angle + math.radians(32))
+            y = p.range * math.sin(p.angle + math.radians(32))
             cartesian_points.append((x, y, 0.0))
     return cartesian_points
 
@@ -51,12 +51,12 @@ def setup_lidar():
     laser.setlidaropt(ydlidar.LidarPropDeviceType, ydlidar.YDLIDAR_TYPE_SERIAL)
 
     # Ajustes de varredura
-    laser.setlidaropt(ydlidar.LidarPropScanFrequency, 7.0)
-    laser.setlidaropt(ydlidar.LidarPropSampleRate, 2)
+    laser.setlidaropt(ydlidar.LidarPropScanFrequency, 10.0)
+    laser.setlidaropt(ydlidar.LidarPropSampleRate, 3)
     laser.setlidaropt(ydlidar.LidarPropMinAngle, -180.0)
-    laser.setlidaropt(ydlidar.LidarPropMaxAngle, 180.0)
+    laser.setlidaropt(ydlidar.LidarPropMaxAngle, -60.0)
     laser.setlidaropt(ydlidar.LidarPropMinRange, 0.12)
-    laser.setlidaropt(ydlidar.LidarPropMaxRange, 16.0)
+    laser.setlidaropt(ydlidar.LidarPropMaxRange, 6.0)
     laser.setlidaropt(ydlidar.LidarPropSingleChannel, True)
 
     if not laser.initialize():
@@ -79,14 +79,14 @@ def get_lidar_data(laser):
         cartesian_data = polar_to_cartesian(scan.points)
 
         # Aplicando filtro de suavização
-        smoothed_data = smooth_data(cartesian_data)
+        # smoothed_data = smooth_data(cartesian_data)
 
         # Exibindo apenas os primeiros 10 pontos filtrados e suavizados
         print("Pontos Processados:")
-        for x, y, z in smoothed_data[:10]:
+        for x, y, z in cartesian_data:
             print(f"X: {x:.2f} m | Y: {y:.2f} m")
 
-        return smoothed_data
+        return cartesian_data
     return []
 
 

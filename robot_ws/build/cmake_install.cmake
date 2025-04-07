@@ -131,8 +131,8 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/gtest/cmake_install.cmake")
-  include("/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/maze/cmake_install.cmake")
   include("/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/drivers/cmake_install.cmake")
+  include("/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/maze/cmake_install.cmake")
 
 endif()
 

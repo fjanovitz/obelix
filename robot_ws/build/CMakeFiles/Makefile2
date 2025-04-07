@@ -54,15 +54,15 @@ CMAKE_BINARY_DIR = /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build
 
 # The main recursive "all" target.
 all: gtest/all
-all: maze/all
 all: drivers/all
+all: maze/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
-preinstall: maze/preinstall
 preinstall: drivers/preinstall
+preinstall: maze/preinstall
 
 .PHONY : preinstall
 
@@ -73,8 +73,8 @@ clean: CMakeFiles/clean_test_results.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
-clean: maze/clean
 clean: drivers/clean
+clean: maze/clean
 
 .PHONY : clean
 
@@ -189,7 +189,7 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 # Directory level rules for directory maze
 
 # Recursive "all" directory target.
-maze/all:
+maze/all: maze/CMakeFiles/maze_generate_messages.dir/all
 
 .PHONY : maze/all
 
@@ -199,7 +199,17 @@ maze/preinstall:
 .PHONY : maze/preinstall
 
 # Recursive "clean" directory target.
-maze/clean: maze/CMakeFiles/_catkin_empty_exported_target.dir/clean
+maze/clean: maze/CMakeFiles/maze_generate_messages_cpp.dir/clean
+maze/clean: maze/CMakeFiles/maze_geneus.dir/clean
+maze/clean: maze/CMakeFiles/maze_generate_messages.dir/clean
+maze/clean: maze/CMakeFiles/maze_gencpp.dir/clean
+maze/clean: maze/CMakeFiles/maze_generate_messages_eus.dir/clean
+maze/clean: maze/CMakeFiles/maze_generate_messages_lisp.dir/clean
+maze/clean: maze/CMakeFiles/maze_genlisp.dir/clean
+maze/clean: maze/CMakeFiles/maze_generate_messages_nodejs.dir/clean
+maze/clean: maze/CMakeFiles/maze_gennodejs.dir/clean
+maze/clean: maze/CMakeFiles/maze_generate_messages_py.dir/clean
+maze/clean: maze/CMakeFiles/maze_genpy.dir/clean
 
 .PHONY : maze/clean
 
@@ -446,33 +456,6 @@ gtest: gtest/googletest/CMakeFiles/gtest.dir/rule
 gtest/googletest/CMakeFiles/gtest.dir/clean:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
-
-#=============================================================================
-# Target rules for target maze/CMakeFiles/_catkin_empty_exported_target.dir
-
-# All Build rule for target.
-maze/CMakeFiles/_catkin_empty_exported_target.dir/all:
-	$(MAKE) -f maze/CMakeFiles/_catkin_empty_exported_target.dir/build.make maze/CMakeFiles/_catkin_empty_exported_target.dir/depend
-	$(MAKE) -f maze/CMakeFiles/_catkin_empty_exported_target.dir/build.make maze/CMakeFiles/_catkin_empty_exported_target.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
-.PHONY : maze/CMakeFiles/_catkin_empty_exported_target.dir/all
-
-# Build rule for subdir invocation for target.
-maze/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/_catkin_empty_exported_target.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
-.PHONY : maze/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-# Convenience name for target.
-_catkin_empty_exported_target: maze/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-.PHONY : _catkin_empty_exported_target
-
-# clean rule for target.
-maze/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	$(MAKE) -f maze/CMakeFiles/_catkin_empty_exported_target.dir/build.make maze/CMakeFiles/_catkin_empty_exported_target.dir/clean
-.PHONY : maze/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 #=============================================================================
 # Target rules for target drivers/CMakeFiles/drivers_generate_messages_py.dir
@@ -1388,6 +1371,317 @@ drivers_genlisp: drivers/CMakeFiles/drivers_genlisp.dir/rule
 drivers/CMakeFiles/drivers_genlisp.dir/clean:
 	$(MAKE) -f drivers/CMakeFiles/drivers_genlisp.dir/build.make drivers/CMakeFiles/drivers_genlisp.dir/clean
 .PHONY : drivers/CMakeFiles/drivers_genlisp.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_generate_messages_cpp.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_generate_messages_cpp.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+maze/CMakeFiles/maze_generate_messages_cpp.dir/all: drivers/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/all
+maze/CMakeFiles/maze_generate_messages_cpp.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_cpp.dir/build.make maze/CMakeFiles/maze_generate_messages_cpp.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_cpp.dir/build.make maze/CMakeFiles/maze_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target maze_generate_messages_cpp"
+.PHONY : maze/CMakeFiles/maze_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+maze_generate_messages_cpp: maze/CMakeFiles/maze_generate_messages_cpp.dir/rule
+
+.PHONY : maze_generate_messages_cpp
+
+# clean rule for target.
+maze/CMakeFiles/maze_generate_messages_cpp.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_cpp.dir/build.make maze/CMakeFiles/maze_generate_messages_cpp.dir/clean
+.PHONY : maze/CMakeFiles/maze_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_geneus.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_geneus.dir/all: maze/CMakeFiles/maze_generate_messages_eus.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_geneus.dir/build.make maze/CMakeFiles/maze_geneus.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_geneus.dir/build.make maze/CMakeFiles/maze_geneus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target maze_geneus"
+.PHONY : maze/CMakeFiles/maze_geneus.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_geneus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_geneus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_geneus.dir/rule
+
+# Convenience name for target.
+maze_geneus: maze/CMakeFiles/maze_geneus.dir/rule
+
+.PHONY : maze_geneus
+
+# clean rule for target.
+maze/CMakeFiles/maze_geneus.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_geneus.dir/build.make maze/CMakeFiles/maze_geneus.dir/clean
+.PHONY : maze/CMakeFiles/maze_geneus.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_generate_messages.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_generate_messages.dir/all: maze/CMakeFiles/maze_generate_messages_cpp.dir/all
+maze/CMakeFiles/maze_generate_messages.dir/all: maze/CMakeFiles/maze_generate_messages_eus.dir/all
+maze/CMakeFiles/maze_generate_messages.dir/all: maze/CMakeFiles/maze_generate_messages_lisp.dir/all
+maze/CMakeFiles/maze_generate_messages.dir/all: maze/CMakeFiles/maze_generate_messages_nodejs.dir/all
+maze/CMakeFiles/maze_generate_messages.dir/all: maze/CMakeFiles/maze_generate_messages_py.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages.dir/build.make maze/CMakeFiles/maze_generate_messages.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages.dir/build.make maze/CMakeFiles/maze_generate_messages.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target maze_generate_messages"
+.PHONY : maze/CMakeFiles/maze_generate_messages.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_generate_messages.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_generate_messages.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_generate_messages.dir/rule
+
+# Convenience name for target.
+maze_generate_messages: maze/CMakeFiles/maze_generate_messages.dir/rule
+
+.PHONY : maze_generate_messages
+
+# clean rule for target.
+maze/CMakeFiles/maze_generate_messages.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages.dir/build.make maze/CMakeFiles/maze_generate_messages.dir/clean
+.PHONY : maze/CMakeFiles/maze_generate_messages.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_gencpp.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_gencpp.dir/all: maze/CMakeFiles/maze_generate_messages_cpp.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_gencpp.dir/build.make maze/CMakeFiles/maze_gencpp.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_gencpp.dir/build.make maze/CMakeFiles/maze_gencpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target maze_gencpp"
+.PHONY : maze/CMakeFiles/maze_gencpp.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_gencpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_gencpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_gencpp.dir/rule
+
+# Convenience name for target.
+maze_gencpp: maze/CMakeFiles/maze_gencpp.dir/rule
+
+.PHONY : maze_gencpp
+
+# clean rule for target.
+maze/CMakeFiles/maze_gencpp.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_gencpp.dir/build.make maze/CMakeFiles/maze_gencpp.dir/clean
+.PHONY : maze/CMakeFiles/maze_gencpp.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_generate_messages_eus.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_generate_messages_eus.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+maze/CMakeFiles/maze_generate_messages_eus.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+maze/CMakeFiles/maze_generate_messages_eus.dir/all: drivers/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_eus.dir/build.make maze/CMakeFiles/maze_generate_messages_eus.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_eus.dir/build.make maze/CMakeFiles/maze_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num=21 "Built target maze_generate_messages_eus"
+.PHONY : maze/CMakeFiles/maze_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+maze_generate_messages_eus: maze/CMakeFiles/maze_generate_messages_eus.dir/rule
+
+.PHONY : maze_generate_messages_eus
+
+# clean rule for target.
+maze/CMakeFiles/maze_generate_messages_eus.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_eus.dir/build.make maze/CMakeFiles/maze_generate_messages_eus.dir/clean
+.PHONY : maze/CMakeFiles/maze_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_generate_messages_lisp.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_generate_messages_lisp.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+maze/CMakeFiles/maze_generate_messages_lisp.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+maze/CMakeFiles/maze_generate_messages_lisp.dir/all: drivers/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_lisp.dir/build.make maze/CMakeFiles/maze_generate_messages_lisp.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_lisp.dir/build.make maze/CMakeFiles/maze_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target maze_generate_messages_lisp"
+.PHONY : maze/CMakeFiles/maze_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+maze_generate_messages_lisp: maze/CMakeFiles/maze_generate_messages_lisp.dir/rule
+
+.PHONY : maze_generate_messages_lisp
+
+# clean rule for target.
+maze/CMakeFiles/maze_generate_messages_lisp.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_lisp.dir/build.make maze/CMakeFiles/maze_generate_messages_lisp.dir/clean
+.PHONY : maze/CMakeFiles/maze_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_genlisp.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_genlisp.dir/all: maze/CMakeFiles/maze_generate_messages_lisp.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_genlisp.dir/build.make maze/CMakeFiles/maze_genlisp.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_genlisp.dir/build.make maze/CMakeFiles/maze_genlisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target maze_genlisp"
+.PHONY : maze/CMakeFiles/maze_genlisp.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_genlisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_genlisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_genlisp.dir/rule
+
+# Convenience name for target.
+maze_genlisp: maze/CMakeFiles/maze_genlisp.dir/rule
+
+.PHONY : maze_genlisp
+
+# clean rule for target.
+maze/CMakeFiles/maze_genlisp.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_genlisp.dir/build.make maze/CMakeFiles/maze_genlisp.dir/clean
+.PHONY : maze/CMakeFiles/maze_genlisp.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_generate_messages_nodejs.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_generate_messages_nodejs.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+maze/CMakeFiles/maze_generate_messages_nodejs.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+maze/CMakeFiles/maze_generate_messages_nodejs.dir/all: drivers/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_nodejs.dir/build.make maze/CMakeFiles/maze_generate_messages_nodejs.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_nodejs.dir/build.make maze/CMakeFiles/maze_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target maze_generate_messages_nodejs"
+.PHONY : maze/CMakeFiles/maze_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+maze_generate_messages_nodejs: maze/CMakeFiles/maze_generate_messages_nodejs.dir/rule
+
+.PHONY : maze_generate_messages_nodejs
+
+# clean rule for target.
+maze/CMakeFiles/maze_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_nodejs.dir/build.make maze/CMakeFiles/maze_generate_messages_nodejs.dir/clean
+.PHONY : maze/CMakeFiles/maze_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_gennodejs.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_gennodejs.dir/all: maze/CMakeFiles/maze_generate_messages_nodejs.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_gennodejs.dir/build.make maze/CMakeFiles/maze_gennodejs.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_gennodejs.dir/build.make maze/CMakeFiles/maze_gennodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target maze_gennodejs"
+.PHONY : maze/CMakeFiles/maze_gennodejs.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_gennodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_gennodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_gennodejs.dir/rule
+
+# Convenience name for target.
+maze_gennodejs: maze/CMakeFiles/maze_gennodejs.dir/rule
+
+.PHONY : maze_gennodejs
+
+# clean rule for target.
+maze/CMakeFiles/maze_gennodejs.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_gennodejs.dir/build.make maze/CMakeFiles/maze_gennodejs.dir/clean
+.PHONY : maze/CMakeFiles/maze_gennodejs.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_generate_messages_py.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_generate_messages_py.dir/all: drivers/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+maze/CMakeFiles/maze_generate_messages_py.dir/all: drivers/CMakeFiles/std_msgs_generate_messages_py.dir/all
+maze/CMakeFiles/maze_generate_messages_py.dir/all: drivers/CMakeFiles/trajectory_msgs_generate_messages_py.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_py.dir/build.make maze/CMakeFiles/maze_generate_messages_py.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_py.dir/build.make maze/CMakeFiles/maze_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target maze_generate_messages_py"
+.PHONY : maze/CMakeFiles/maze_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_generate_messages_py.dir/rule
+
+# Convenience name for target.
+maze_generate_messages_py: maze/CMakeFiles/maze_generate_messages_py.dir/rule
+
+.PHONY : maze_generate_messages_py
+
+# clean rule for target.
+maze/CMakeFiles/maze_generate_messages_py.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_generate_messages_py.dir/build.make maze/CMakeFiles/maze_generate_messages_py.dir/clean
+.PHONY : maze/CMakeFiles/maze_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target maze/CMakeFiles/maze_genpy.dir
+
+# All Build rule for target.
+maze/CMakeFiles/maze_genpy.dir/all: maze/CMakeFiles/maze_generate_messages_py.dir/all
+	$(MAKE) -f maze/CMakeFiles/maze_genpy.dir/build.make maze/CMakeFiles/maze_genpy.dir/depend
+	$(MAKE) -f maze/CMakeFiles/maze_genpy.dir/build.make maze/CMakeFiles/maze_genpy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles --progress-num= "Built target maze_genpy"
+.PHONY : maze/CMakeFiles/maze_genpy.dir/all
+
+# Build rule for subdir invocation for target.
+maze/CMakeFiles/maze_genpy.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 maze/CMakeFiles/maze_genpy.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/build/CMakeFiles 0
+.PHONY : maze/CMakeFiles/maze_genpy.dir/rule
+
+# Convenience name for target.
+maze_genpy: maze/CMakeFiles/maze_genpy.dir/rule
+
+.PHONY : maze_genpy
+
+# clean rule for target.
+maze/CMakeFiles/maze_genpy.dir/clean:
+	$(MAKE) -f maze/CMakeFiles/maze_genpy.dir/build.make maze/CMakeFiles/maze_genpy.dir/clean
+.PHONY : maze/CMakeFiles/maze_genpy.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

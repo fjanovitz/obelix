@@ -19,12 +19,12 @@ add_custom_target(drivers_generate_messages ALL)
 
 get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv" NAME_WE)
 add_custom_target(_drivers_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drivers" "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv" "sensor_msgs/Image:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drivers" "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv" "std_msgs/Header:sensor_msgs/Image"
 )
 
 get_filename_component(_filename "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv" NAME_WE)
 add_custom_target(_drivers_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drivers" "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv" "trajectory_msgs/JointTrajectory:trajectory_msgs/JointTrajectoryPoint:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drivers" "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv" "trajectory_msgs/JointTrajectoryPoint:std_msgs/Header:trajectory_msgs/JointTrajectory"
 )
 
 #
@@ -38,13 +38,13 @@ add_custom_target(_drivers_generate_messages_check_deps_${_filename}
 _generate_srv_cpp(drivers
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/drivers
 )
 _generate_srv_cpp(drivers
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/drivers
 )
 
@@ -79,13 +79,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drivers_generate_messages_cpp)
 _generate_srv_eus(drivers
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/drivers
 )
 _generate_srv_eus(drivers
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/drivers
 )
 
@@ -120,13 +120,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drivers_generate_messages_eus)
 _generate_srv_lisp(drivers
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/drivers
 )
 _generate_srv_lisp(drivers
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/drivers
 )
 
@@ -161,13 +161,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drivers_generate_messages_lisp)
 _generate_srv_nodejs(drivers
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/drivers
 )
 _generate_srv_nodejs(drivers
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/drivers
 )
 
@@ -202,13 +202,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drivers_generate_messages_nodejs)
 _generate_srv_py(drivers
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Camera.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/drivers
 )
 _generate_srv_py(drivers
   "/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/src/drivers/srv/Servo.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectoryPoint.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/trajectory_msgs/cmake/../msg/JointTrajectory.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/drivers
 )
 

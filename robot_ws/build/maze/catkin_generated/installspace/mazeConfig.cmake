@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(maze_EXPORTED_TARGETS "")
+set(maze_EXPORTED_TARGETS "maze_generate_messages_cpp;maze_generate_messages_eus;maze_generate_messages_lisp;maze_generate_messages_nodejs;maze_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${maze_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(maze_EXPORTED_TARGETS ${${maze_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "maze-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${maze_DIR}/${extra})

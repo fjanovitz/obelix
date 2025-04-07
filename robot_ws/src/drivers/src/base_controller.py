@@ -56,9 +56,12 @@ class BaseController:
         self.wheel_separation = 0.2185  # Distância entre as rodas em metros
 
         # Configurações do controlador PID
-        self.kp = 10.0
-        self.ki = 0.0
-        self.kd = 0.0
+        self.kp_1 = 3.75
+        self.ki_1 = 0.0
+        self.kd_1 = 0.0
+        self.kp_2 = 3.0
+        self.ki_2 = 0.0
+        self.kd_2 = 0.0
         self.last_error_a = 0
         self.integral_a = 0
         self.last_error_b = 0
@@ -88,11 +91,11 @@ class BaseController:
         # Calcular sinais de controle PID
         self.integral_a += error_a * elapsed_time
         derivative_a = (error_a - self.last_error_a) / elapsed_time
-        control_signal_a = self.kp * error_a + self.ki * self.integral_a + self.kd * derivative_a
+        control_signal_a = self.kp_1 * error_a + self.ki_1 * self.integral_a + self.kd_1 * derivative_a
 
         self.integral_b += error_b * elapsed_time
         derivative_b = (error_b - self.last_error_b) / elapsed_time
-        control_signal_b = self.kp * error_b + self.ki * self.integral_b + self.kd * derivative_b
+        control_signal_b = self.kp_2 * error_b + self.ki_2 * self.integral_b + self.kd_2 * derivative_b
 
         # Enviar sinais PWM para a ponte H
         self.set_motor_speed(self.pwm_a, control_signal_a, self.MOTOR1_IN1, self.MOTOR1_IN2)
@@ -114,9 +117,12 @@ class BaseController:
         if control_signal > 0:
             GPIO.output(in1_pin, GPIO.HIGH)
             GPIO.output(in2_pin, GPIO.LOW)
-        else:
+        elif control_signal < 0:
             GPIO.output(in1_pin, GPIO.LOW)
             GPIO.output(in2_pin, GPIO.HIGH)
+        else:
+            GPIO.output(in1_pin, GPIO.LOW)
+            GPIO.output(in2_pin, GPIO.LOW)
 
         pwm.ChangeDutyCycle(speed)
 
