@@ -10,7 +10,7 @@ from drivers.srv import FindTarget # Import the target finding service
 
 class ReactiveNavigator:
     def __init__(self):
-        rospy.init_node('reactive_navigator')
+        rospy.init_node('base_navigator')
 
         # --- Parameters ---
         # Navigation

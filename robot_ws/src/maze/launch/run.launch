@@ -8,6 +8,6 @@
 
     <!-- Pacote maze -->
     <node name="camera_controller" pkg="maze" type="camera_controller.py" output="screen" />
-    <node name="base_odometry_node" pkg="maze" type="base_odometer.py" output="screen" />
-    <node name="reactive_navigator" pkg="maze" type="base_navigator.py" output="screen" />
+    <node name="base_odometer" pkg="maze" type="base_odometer.py" output="screen" />
+    <node name="base_navigator" pkg="maze" type="base_navigator.py" output="screen" />
 </launch>
