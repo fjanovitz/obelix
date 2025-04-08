@@ -11,8 +11,8 @@ def capture_image_client():
     rospy.init_node("camera_client")
     bridge = CvBridge()
     
-    rospy.wait_for_service("image")
-    capture_service = rospy.ServiceProxy("image", Camera)
+    rospy.wait_for_service("/camera_server/image")
+    capture_service = rospy.ServiceProxy('/camera_server/image', Camera)
     
     timestamp = time.strftime("%Y%m%d_%H%M%S")
     image_path = f"camera_{timestamp}.jpg"

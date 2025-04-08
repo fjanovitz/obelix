@@ -22,7 +22,7 @@ class CameraServer:
         # Configura para liberar a câmera entre capturas
         self.camera.set(cv2.CAP_PROP_BUFFERSIZE, 1)
         
-        self.service = rospy.Service("image", Camera, self.handle_capture_request)
+        self.service = rospy.Service('~image', Camera, self.handle_capture_request)
         rospy.loginfo("Serviço de câmera pronto")
 
     def handle_capture_request(self, req):

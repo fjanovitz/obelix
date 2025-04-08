@@ -23,7 +23,7 @@ class TargetFinder:
         self.min_green_area = 500
 
         rospy.loginfo("Esperando por serviços da câmera e do servomotor...")
-        rospy.wait_for_service("/image")
+        rospy.wait_for_service("/camera_server/image")
         rospy.wait_for_service("/servo_controller/set_position")
         rospy.loginfo("Serviços disponíveis.")
 
