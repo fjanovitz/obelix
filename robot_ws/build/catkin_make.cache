@@ -1,2 +1,0 @@
-drivers:maze
--DCATKIN_DEVEL_PREFIX=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/robot/Documents/2024-2-Projeto2/obelix/robot_ws/install -G Unix Makefiles
