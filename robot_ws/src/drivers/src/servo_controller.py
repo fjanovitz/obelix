@@ -6,7 +6,7 @@ import math
 from trajectory_msgs.msg import JointTrajectory
 from drivers.srv import Servo, ServoResponse
 
-class ControladorServo:
+class ServoController:
     def __init__(self):
         rospy.init_node('servo_controller')
         
@@ -22,11 +22,11 @@ class ControladorServo:
         self.pwm = GPIO.PWM(self.servo_pin, 50)
         self.pwm.start(0)
         
-        self.service = rospy.Service('~set_position', Servo, self.handle_request)
+        self.service = rospy.Service('~set_position', Servo, self.handle_servo_request)
 
         rospy.loginfo("Serviço de controle do servo iniciado. Aguardando requisições...")	
         
-    def handle_request(self, req):
+    def handle_servo_request(self, req):
         try:
             if not req.trajectory.points:
                 msg = "Requisição sem pontos recebida."
@@ -81,8 +81,12 @@ class ControladorServo:
         GPIO.cleanup()
 
 if __name__ == '__main__':
-    controller = ControladorServo()
+    controller = ServoController()
     try:
         rospy.spin()
+    except rospy.ROSInterruptException:
+        pass
+    except Exception as e:
+        rospy.logerr(f"Erro no serviço: {e}")
     finally:
         controller.cleanup()
