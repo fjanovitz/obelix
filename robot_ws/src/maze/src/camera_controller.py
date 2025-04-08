@@ -53,8 +53,8 @@ def detect_green_in_image():
     except (rospy.ServiceException, CvBridgeError) as e:
         rospy.logerr(f"Erro: {e}")
 
-def detect_angle_with_green():
-    rospy.init_node('servo_to_detect_green')
+def find_objective():
+    rospy.init_node('objective_finder')
     
     angles = [-90, -60, -30, 0, 30, 60, 90]
     set_servo = rospy.ServiceProxy('/servo_controller/set_position', Servo)
@@ -85,7 +85,7 @@ def detect_angle_with_green():
 
 if __name__ == "__main__":
     try:
-        detect_angle_with_green()
+        find_objective()
     except rospy.ROSInterruptException:
         pass
     finally:
