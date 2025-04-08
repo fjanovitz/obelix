@@ -6,7 +6,7 @@ from geometry_msgs.msg import Twist
 import sensor_msgs.point_cloud2 as pc2
 import numpy as np
 import math
-from drivers.srv import FindTarget # Import the target finding service
+from maze.srv import Finder
 
 class ReactiveNavigator:
     def __init__(self):
@@ -14,8 +14,8 @@ class ReactiveNavigator:
 
         # --- Parameters ---
         # Navigation
-        self.forward_speed = 0.15           # Max forward speed (m/s)
-        self.turn_speed = 0.7               # Max turning speed (rad/s)
+        self.forward_speed = 10.0          # Max forward speed (m/s)
+        self.turn_speed = 10.0              # Max turning speed (rad/s)
         self.goal_direction = 0.0           # Target direction in degrees (0 = straight ahead) Initially straight.
         self.obstacle_threshold = 0.35      # Consider sectors below this distance blocked (m) - Bifurcation/Scan trigger
         self.wall_follow_distance = 0.4     # Target distance for wall following (m)
@@ -48,7 +48,7 @@ class ReactiveNavigator:
         service_name = '/camera_controller/find_target'
         try:
             rospy.wait_for_service(service_name, timeout=15.0)
-            self.find_target_service = rospy.ServiceProxy(service_name, FindTarget)
+            self.find_target_service = rospy.ServiceProxy(service_name, Finder)
             rospy.loginfo("Target finder service connected.")
         except (rospy.ServiceException, rospy.ROSException) as e:
             rospy.logerr(f"Failed to connect to target finder service: {e}")

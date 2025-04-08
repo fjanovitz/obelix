@@ -30,7 +30,7 @@ class TargetFinder:
         self.capture_service = rospy.ServiceProxy("image", Camera)
         self.set_servo = rospy.ServiceProxy('/servo_controller/set_position', Servo)
 
-        self.service = rospy.Service('find_target', Finder, self.handle_find_target_request)
+        self.service = rospy.Service('~find_target', Finder, self.handle_find_target_request)
 
         self.center_servo()
         rospy.on_shutdown(self.center_servo)

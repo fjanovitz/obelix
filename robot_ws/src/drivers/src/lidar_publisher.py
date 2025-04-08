@@ -13,7 +13,7 @@ WINDOW_SIZE = 5
 
 class LidarPublisher:
     def __init__(self):
-        rospy.init_node("ydlidar_publisher", anonymous=True)
+        rospy.init_node("lidar_publisher", anonymous=True)
         pub = rospy.Publisher("/lidar_points", PointCloud2, queue_size=10)
 
         laser = self.setup_lidar()
