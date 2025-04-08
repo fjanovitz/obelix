@@ -20,14 +20,14 @@ class TargetFinder:
         self.angles = [-90, -60, -30, 0, 30, 60, 90]
         self.green_lower = np.array([25, 52, 72], np.uint8)
         self.green_upper = np.array([102, 255, 255], np.uint8)
-        self.min_green_area = 500
+        self.min_green_area = 50
 
         rospy.loginfo("Esperando por serviços da câmera e do servomotor...")
         rospy.wait_for_service("/camera_server/image")
         rospy.wait_for_service("/servo_controller/set_position")
         rospy.loginfo("Serviços disponíveis.")
 
-        self.capture_service = rospy.ServiceProxy("image", Camera)
+        self.capture_service = rospy.ServiceProxy("/camera_server/image", Camera)
         self.set_servo = rospy.ServiceProxy('/servo_controller/set_position', Servo)
 
         self.service = rospy.Service('~find_target', Finder, self.handle_find_target_request)
