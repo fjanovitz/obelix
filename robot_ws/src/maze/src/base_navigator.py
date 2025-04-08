@@ -19,7 +19,7 @@ class ReactiveNavigator:
         self.goal_color_upper = np.array([30, 255, 255])
 
         # Controle de servo
-        self.servo_pub = rospy.Publisher('/servo_angle', Float64, queue_size=10)
+        self.servo_pub = rospy.Publisher('/camera_controller.py', Float64, queue_size=10)
         self.servo_angles = [-60, -30, 0, 30, 60]  # Ângulos para escanear
 
         # Publicadores e subscritores
@@ -69,18 +69,18 @@ class ReactiveNavigator:
         return free_paths >= 2
 
     def wall_follow_strategy(self, distances):
-        front = distances['front']
+        right = distances['right']
         left = distances['left']
 
-        if front < self.wall_follow_distance:
+        if right < self.wall_follow_distance:
             self.twist.linear.x = 0.0
             self.twist.angular.z = -self.turn_speed
         elif left < self.wall_follow_distance:
-            self.twist.linear.x = self.forward_speed
-            self.twist.angular.z = 0.0
-        else:
             self.twist.linear.x = 0.0
             self.twist.angular.z = self.turn_speed
+        else:
+            self.twist.linear.x = self.forward_speed
+            self.twist.angular.z = 0.0
 
     def scan_for_goal(self):
         if not self.latest_image:
