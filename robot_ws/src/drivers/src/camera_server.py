@@ -36,6 +36,8 @@ class CameraServer:
             if not ret:
                 rospy.logerr("Falha ao capturar frame")
                 return CameraResponse()
+            
+            frame = cv2.rotate(frame, cv2.ROTATE_180)
                 
             ros_image = self.bridge.cv2_to_imgmsg(frame, "bgr8")
             return CameraResponse(image=ros_image)
