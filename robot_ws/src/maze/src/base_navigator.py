@@ -10,7 +10,7 @@ from maze.srv import Finder
 
 class ReactiveNavigator:
     def __init__(self):
-        rospy.init_node('reactive_navigator')
+        rospy.init_node('base_navigator')
 
         # --- Parâmetros ---
         self.forward_speed = 1.0          # Velocidade máxima (m/s)

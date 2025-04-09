@@ -39,7 +39,7 @@ def encoder_right_callback(channel):
 def main():
     global count_left, count_right, x, y, theta
 
-    rospy.init_node('base_odometry_node')
+    rospy.init_node('base_odometer')
     # pub = rospy.Publisher('/base_odometry', Odometry, queue_size=10)
     pub = rospy.Publisher('/base_odometry', Int32MultiArray, queue_size=10)
     br = tf.TransformBroadcaster()
