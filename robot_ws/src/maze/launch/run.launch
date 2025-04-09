@@ -1,0 +1,13 @@
+<launch>
+    <!-- Pacote drivers -->
+    <node name="lidar_publisher" pkg="drivers" type="lidar_publisher.py" output="screen" />
+    <node name="camera_server" pkg="drivers" type="camera_server.py" output="screen" />
+    <node name="servo_controller" pkg="drivers" type="servo_controller.py" output="screen" />
+    <node name="base_controller" pkg="drivers" type="base_controller.py" output="screen" />
+
+
+    <!-- Pacote maze -->
+    <node name="camera_controller" pkg="maze" type="camera_controller.py" output="screen" />
+    <node name="base_odometer" pkg="maze" type="base_odometer.py" output="screen" />
+    <node name="base_navigator" pkg="maze" type="base_navigator.py" output="screen" />
+</launch>

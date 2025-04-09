@@ -13,7 +13,7 @@ WINDOW_SIZE = 5
 
 class LidarPublisher:
     def __init__(self):
-        rospy.init_node("ydlidar_publisher", anonymous=True)
+        rospy.init_node("lidar_publisher", anonymous=True)
         pub = rospy.Publisher("/lidar_points", PointCloud2, queue_size=10)
 
         laser = self.setup_lidar()
@@ -33,26 +33,17 @@ class LidarPublisher:
 
             rate.sleep()
 
-    def smooth_data(self, points):
-        # Aplica um filtro de média móvel para suavizar os dados.
-        if len(points) < WINDOW_SIZE:
-            return points  # Se poucos pontos, retorna como está
-
-        smoothed = []
-        for i in range(len(points) - WINDOW_SIZE + 1):
-            avg_x = sum(p[0] for p in points[i:i+WINDOW_SIZE]) / WINDOW_SIZE
-            avg_y = sum(p[1] for p in points[i:i+WINDOW_SIZE]) / WINDOW_SIZE
-            smoothed.append((avg_x, avg_y, 0.0))
-        return smoothed
-
     def polar_to_cartesian(self, points):
-        # Converte coordenadas polares (ângulo, distância) em cartesianas (X, Y). 
         cartesian_points = []
         for p in points:
-            if 0.12 <= p.range <= 6.0:  # Filtrando distâncias válidas
-                x = p.range * math.cos(p.angle + math.radians(32))
-                y = p.range * math.sin(p.angle + math.radians(32))
-                cartesian_points.append((x, y, 0.0))
+            angle_deg = math.degrees(p.angle)  # Converte para graus
+            
+            # Filtra apenas as faixas desejadas: -180° a -30° e 150° a 180°
+            if ((-180.0 <= angle_deg <= -30.0) or (150.0 <= angle_deg <= 180.0)):
+                if 0.12 <= p.range <= 6.0:  # Filtra distâncias válidas
+                    x = p.range * math.cos(p.angle + math.radians(32))
+                    y = -p.range * math.sin(p.angle + math.radians(32))
+                    cartesian_points.append((x, y, 0.0))
         return cartesian_points
 
     def setup_lidar(self):
@@ -74,11 +65,11 @@ class LidarPublisher:
 
         # Ajustes de varredura
         laser.setlidaropt(ydlidar.LidarPropScanFrequency, 10.0)
-        laser.setlidaropt(ydlidar.LidarPropSampleRate, 3)
+        laser.setlidaropt(ydlidar.LidarPropSampleRate, 3) 
         laser.setlidaropt(ydlidar.LidarPropMinAngle, -180.0)
-        laser.setlidaropt(ydlidar.LidarPropMaxAngle, -60.0)
+        laser.setlidaropt(ydlidar.LidarPropMaxAngle, 180.0)
         laser.setlidaropt(ydlidar.LidarPropMinRange, 0.12)
-        laser.setlidaropt(ydlidar.LidarPropMaxRange, 6.0)
+        laser.setlidaropt(ydlidar.LidarPropMaxRange, 3.0)
         laser.setlidaropt(ydlidar.LidarPropSingleChannel, True)
 
         if not laser.initialize():
