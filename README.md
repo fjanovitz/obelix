@@ -2,7 +2,7 @@
 Este projeto consiste em configurar e programar um robô diferencial autônomo utilizando ROS para administrar os sensores e atuadores do robô. Este robô consiste em:
 - 1x Raspberry Pi 4 Model B
 - 2x Motores DC 3-6V com caixa de redução
-- 2x codificadores magnéticos
+- 2x Codificadores magnéticos
 - 1x Ponte H L298 N 
 - 1x Laser YDLidar G2
 - 1x Câmera Raspberry Pi v2 8MP
